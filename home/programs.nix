@@ -37,6 +37,10 @@
     initExtra = ''
       autoload -U colors && colors
       PS1="%B%{$fg[green]%}[%n@%m:%~]$%{$reset_color%}%b "
+
+      develop() {
+        nix develop $1 -c $SHELL
+      }
     '';
 
     completionInit = ''
