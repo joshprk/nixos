@@ -8,4 +8,7 @@
       "/etc/nixos"
     ];
   };
+
+  # fix agenix ssh
+  fileSystems."/home".neededForBoot = true;
 }
