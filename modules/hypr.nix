@@ -18,8 +18,5 @@
     wireplumber.enable = true;
   };
 
-  security = {
-    pam.services.hyprlock = {};
-    rtkit.enable = true;
-  };
+  security.rtkit.enable = true;
 }
