@@ -69,6 +69,8 @@
           ./modules/fwupd.nix
           ./modules/flatpak.nix
           ./modules/nvidia.nix
+
+          ./modules/sshd.nix
         ];
       };
     };
