@@ -6,11 +6,9 @@
     opts = {
       number = true;
       signcolumn = "yes:1";
-
       expandtab = true;
       shiftwidth = 2;
       tabstop = 2;
-
       autoindent = true;
       smartindent = true;
     };
@@ -28,6 +26,39 @@
       enable = true;
       servers = {
         ccls.enable = true;
+        pyright.enable = true;
+        rust_analyzer = {
+          enable = true;
+          installCargo = false;
+          installRustfmt = false;
+          installRustc = false;
+        };
+      };
+    };
+
+    plugins.luasnip.enable = true;
+
+    plugins.cmp = {
+      enable = true;
+      autoEnableSources = true;
+      settings = {
+        sources = [
+          {name = "luasnip";}
+          {name = "nvim_lsp";}
+          {name = "path";}
+          {name = "buffer";}
+        ];
+
+        window.completion.border = "rounded";
+      };
+    };
+
+    plugins.web-devicons.enable = true;
+
+    plugins.telescope = {
+      enable = true;
+      extensions = {
+        file-browser.enable = true;
       };
     };
   };

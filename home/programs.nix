@@ -3,7 +3,14 @@
   pkgs,
   ...
 } @ inputs: {
-  programs.alacritty.enable = true;
+  home.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
+  programs.alacritty = {
+    enable = true;
+    settings = {};
+  };
 
   programs.firefox = {
     enable = true;
@@ -38,8 +45,14 @@
       autoload -U colors && colors
       PS1="%B%{$fg[green]%}[%n@%m:%~]$%{$reset_color%}%b "
 
+      if [[ $1 == eval ]]
+      then
+        "$@"
+      set --
+      fi
+
       develop() {
-        nix develop $1 -c $SHELL
+        nix develop $1 -c $SHELL -ais eval "export SHELL=$SHELL"
       }
     '';
 

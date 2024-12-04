@@ -29,6 +29,7 @@
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
+        font_family = "JetBrainsMono NerdFont";
       };
 
       bind = let
