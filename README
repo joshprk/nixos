@@ -4,6 +4,7 @@ joshprk/nixos
 personal nixos configuration, with
 
   - agenix secrets encryption
+  - home manager
   - impermanence
   - tmpfs in-ram root
   - btrfs with zstd compression
