@@ -76,15 +76,17 @@
 
       LT = mkSystem {
         hostName = "LT";
-	system = "x86_64-linux";
-	stateVersion = "24.05";
-	extraModules = [
+	      system = "x86_64-linux";
+	      stateVersion = "24.05";
+	      extraModules = [
           ./modules/impermanence.nix
           ./modules/networking.nix
-	  ./modules/home.nix
-	  ./modules/hypr.nix
-	  ./modules/nvidia.nix
-	];
+	        ./modules/home.nix
+	        ./modules/hypr.nix
+	        ./modules/nvidia.nix
+
+          ./modules/tailscale.nix
+	      ];
       };
     };
 

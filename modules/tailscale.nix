@@ -1,6 +1,6 @@
 {...}: {
   services.tailscale = {
     enable = true;
-    useRoutingFeatures = ["client"];
+    useRoutingFeatures = "client";
   };
 }
