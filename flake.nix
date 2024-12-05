@@ -83,7 +83,6 @@
           ./modules/networking.nix
 	  ./modules/home.nix
 	  ./modules/hypr.nix
-	  ./modules/fwupd.nix
 	  ./modules/nvidia.nix
 	];
       };

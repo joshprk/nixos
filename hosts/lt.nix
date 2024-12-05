@@ -7,6 +7,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.initrd.luks.devices = {
     nixos = {
       device = "/dev/nvme0n1p2";
@@ -14,6 +16,7 @@
     };
   };
 
+  hardware.nvidia.powerManagement.finegrained = true;
   hardware.nvidia.prime = {
     offload.enable = true;
     amdgpuBusId = "PCI:0:53:0";
