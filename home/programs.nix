@@ -5,6 +5,7 @@
 } @ inputs: {
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    brightnessctl
   ];
 
   programs.alacritty = {
