@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     impermanence.url = "github:nix-community/impermanence";
+    lanzaboote.url = "github:nix-community/lanzaboote";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -50,6 +51,7 @@
             ./hosts/${lib.strings.toLower hostName}.nix
             ./secrets
             impermanence.nixosModules.impermanence
+            lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
             agenix.nixosModules.default
           ]
@@ -69,6 +71,8 @@
           ./modules/fwupd.nix
           ./modules/flatpak.nix
           ./modules/nvidia.nix
+          
+          ./modules/secureboot.nix
 
           ./modules/sshd.nix
         ];
@@ -96,6 +100,7 @@
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
           self.inputs.agenix.packages.${system}.default
+          sbctl
           git
         ];
       };

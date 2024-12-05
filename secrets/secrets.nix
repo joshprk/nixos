@@ -1,5 +1,5 @@
 let
-  ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCBom//Vs1SSCBq9JxLloFZEBmkrZ81utid4eg3PfTe joshua@PC";
+  ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHm7m7TJ5xzqsD4cC2ACFwCBE5LBQdn0RG1+ov4E3JTY joshua@PC";
 in {
   "user.age".publicKeys = [ssh];
 }

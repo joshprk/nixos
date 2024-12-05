@@ -1,0 +1,20 @@
+joshprk/nixos
+-------------
+
+personal nixos configuration, with
+
+  - agenix secrets encryption
+  - impermanence
+  - tmpfs in-ram root
+  - btrfs with zstd compression
+  - luks encryption with tpm unlock
+  - secure boot support
+  - xdg base directory compliant home directory
+  - nixvim configuration
+  - hyprland configuration
+  - develop command with globally available dev shells
+  - support for gaming through flatpaks with nvidia support
+  - declared nmcli networks through nix
+  - pure and stateless
+
+  feel free to contact me on discord at joshprk with any questions

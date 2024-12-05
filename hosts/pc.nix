@@ -23,7 +23,7 @@
 
   networking.interfaces."eno1".wakeOnLan = {
     enable = true;
-    policy = ["magic"];
+    policy = ["magic" "unicast"];
   };
 
   zramSwap.enable = true;

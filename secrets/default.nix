@@ -1,6 +1,6 @@
 {...}: {
   age.identityPaths = [
-    "/home/joshua/.ssh/id_ed25519"
+    "/home/joshua/.ssh/sys_ed25519"
   ];
 
   age.secrets = {

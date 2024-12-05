@@ -1,4 +1,4 @@
-{...}: {
+{config, lib, ...}: {
   environment.persistence."/nix/persist" = {
     enable = true;
     hideMounts = true;
@@ -6,6 +6,7 @@
       "/var/log"
       "/var/lib/nixos"
       "/etc/nixos"
+      (lib.mkIf (config.boot.lanzaboote != null) "/etc/secureboot")
     ];
   };
 
