@@ -12,7 +12,6 @@
     in {
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          hatch
           python313
         ];
       };

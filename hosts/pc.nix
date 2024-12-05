@@ -7,6 +7,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   hardware.nvidia.nvidiaPersistenced = true;
   systemd.services.nvidia-underclock = {
     description = "Limits NVIDIA GPU clocks to 1900MHz and overclocks memory by +1000MHz";

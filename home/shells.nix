@@ -1,6 +1,12 @@
 {...}: {
   nix.registry = {
-    python.flake = ./flakes/python;
-    rust.flake = ./flakes/rust;
+    python.to = {
+      type = "path";
+      path = "${./flakes/python}";
+    };
+    rust.to = {
+      type = "path";
+      path = "${./flakes/rust}";
+    };
   };
 }
