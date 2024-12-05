@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, lib, pkgs, ...}: {
   imports = [
     ./programs.nix
     ./hypr.nix
@@ -17,6 +17,14 @@
 
   home.shellAliases = {
     steam = "flatpak run com.valvesoftware.Steam";
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
   };
 
   xdg = {
