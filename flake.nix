@@ -73,6 +73,20 @@
           ./modules/sshd.nix
         ];
       };
+
+      LT = mkSystem {
+        hostName = "LT";
+	system = "x86_64-linux";
+	stateVersion = "24.05";
+	extraModules = [
+          ./modules/impermanence.nix
+          ./modules/networking.nix
+	  ./modules/home.nix
+	  ./modules/hypr.nix
+	  ./modules/fwupd.nix
+	  ./modules/nvidia.nix
+	];
+      };
     };
 
     devShells = forAllSystems (system: let
