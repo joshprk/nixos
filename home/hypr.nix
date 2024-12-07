@@ -80,7 +80,9 @@
       ipc = "on";
       splash = false;
 
-      preload = ["${wallpaper}"];
+      preload = [
+        "${wallpaper}"
+      ];
 
       wallpaper = [
         ", ${wallpaper}"
