@@ -68,25 +68,4 @@
       ];
     };
   };
-
-  services.hyprpaper = {
-    enable = true;
-    settings = let
-      wallpaper = builtins.fetchurl {
-        url = "https://w.wallhaven.cc/full/kx/wallhaven-kx9ql7.jpg";
-        sha256 = "1jy63ln0xym9nkz9gc73chmivigmf06lwwz8c9g5hb9r6yjzshqg";
-      };
-    in {
-      ipc = "on";
-      splash = false;
-
-      preload = [
-        "${wallpaper}"
-      ];
-
-      wallpaper = [
-        ", ${wallpaper}"
-      ];
-    };
-  };
 }
