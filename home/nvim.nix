@@ -11,6 +11,7 @@
       tabstop = 2;
       autoindent = true;
       smartindent = true;
+      swapfile = false;
     };
 
     colorschemes.catppuccin = {
