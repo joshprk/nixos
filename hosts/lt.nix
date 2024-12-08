@@ -8,7 +8,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # fix stutter on terminal due to offload
-  boot.kernelParams = ["amdgpu.dcdebugmask=0x10"];
+  boot.kernelParams = [
+    "amdgpu.dcdebugmask=0x10"
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -19,19 +21,21 @@
     };
   };
 
-  hardware.nvidia.powerManagement.finegrained = true;
-  hardware.nvidia.prime = {
-    offload.enable = true;
-    amdgpuBusId = "PCI:0:53:0";
-    nvidiaBusId = "PCI:0:1:0";
+  hardware.nvidia = {
+    powerManagement.finegrained = true;
+    prime = {
+      offload.enable = true;
+      amdgpuBusId = "PCI:0:53:0";
+      nvidiaBusId = "PCI:0:1:0";
+    };
   };
 
   networking.networkmanager.wifi.powersave = true;
+
+  services.tlp.enable = true;
 
   powerManagement = {
     enable = true;
     powertop.enable = true;
   };
-
-  services.tlp.enable = true;
 }

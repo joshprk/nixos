@@ -88,6 +88,7 @@
 	        ./modules/home.nix
 	        ./modules/hypr.nix
 	        ./modules/nvidia.nix
+          ./modules/fwupd.nix
 
           ./modules/tailscale.nix
 	      ];
