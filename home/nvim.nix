@@ -12,6 +12,7 @@
       autoindent = true;
       smartindent = true;
       swapfile = false;
+      wrap = false;
     };
 
     colorschemes.catppuccin = {
