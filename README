@@ -15,6 +15,7 @@ personal nixos configuration, with
   - hyprland configuration
   - develop command with globally available dev shells
   - support for gaming through flatpaks with nvidia support
+  - remote access with tailscale, ssh, and moonlight
   - declared nmcli networks through nix
   - pure and stateless
 
