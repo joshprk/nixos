@@ -26,5 +26,7 @@
     nvidiaBusId = "PCI:0:1:0";
   };
 
+  networking.networkmanager.wifi.powersave = true;
+
   services.tlp.enable = true;
 }
