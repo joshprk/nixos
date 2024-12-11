@@ -10,6 +10,7 @@
 
       decoration = {
         rounding = 6;
+        active_opacity = 0.95;
         inactive_opacity = 0.88;
 
         blur = {
@@ -61,6 +62,11 @@
     enable = true;
     settings = {
       listener = [
+        {
+          timeout = 30;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
         {
           timeout = 300;
           on-timeout = "systemctl suspend";
