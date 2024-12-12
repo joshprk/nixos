@@ -1,6 +1,7 @@
 {config, lib, pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
+
     settings = {
       monitor = ", highrr, auto, 1";
 
@@ -55,6 +56,10 @@
         ]
         ++ numKeys
         ++ directionals;
+
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+      ];
     };
   };
 

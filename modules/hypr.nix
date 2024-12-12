@@ -1,6 +1,4 @@
 {...}: {
-  programs.hyprland.enable = true;
-
   services.greetd = {
     enable = true;
     settings = rec {
@@ -17,6 +15,9 @@
     pulse.enable = true;
     wireplumber.enable = true;
   };
+
+  services.xserver.enable = true;
+  programs.hyprland.enable = true;
 
   security.rtkit.enable = true;
 }
