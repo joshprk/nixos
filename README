@@ -9,6 +9,7 @@ personal nixos configuration, with
   - tmpfs in-ram root
   - btrfs with zstd compression
   - luks encryption with tpm unlock
+  - compressed in-ram swapfile using zram
   - secure boot support
   - xdg base directory compliant home directory
   - nixvim configuration
