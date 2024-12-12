@@ -7,15 +7,19 @@
     nerd-fonts.jetbrains-mono
     brightnessctl
     swww
-
+    
     python313
   ];
 
-  programs.wpaperd = {
-    enable = true;
-    settings = {
-      any.path = ./assets/catbg.gif;
+  systemd.user.services.swww-daemon = {
+    Unit = {
+      Description = "Starts swww daemon";
+      After = ["graphical-session-pre.target"];
+      PartOf = ["graphical-session.target"];
     };
+
+    Install = { WantedBy = ["graphical-session.target"]; };
+    Service = { ExecStart = "${pkgs.swww}/bin/swww-daemon"; };
   };
 
   programs.alacritty = {
