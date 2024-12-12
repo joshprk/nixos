@@ -7,6 +7,8 @@
     nerd-fonts.jetbrains-mono
     brightnessctl
     swww
+
+    python313
   ];
 
   programs.alacritty = {
