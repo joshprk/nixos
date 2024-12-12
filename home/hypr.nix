@@ -3,7 +3,7 @@
     enable = true;
 
     settings = {
-      monitor = ", highrr, auto, 1";
+      monitor = ", highrr, auto, 1, bitdepth, 10";
 
       general = {
         resize_on_border = true;
@@ -15,7 +15,7 @@
         inactive_opacity = 0.88;
 
         blur = {
-          enabled = true;
+          enabled = false;
         };
       };
 
@@ -33,6 +33,7 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         font_family = "JetBrainsMono NerdFont";
+        vrr = 2;
       };
 
       bind = let
