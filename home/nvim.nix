@@ -1,4 +1,4 @@
-{...}: {
+{config, lib, pkgs, ...}: {
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -15,6 +15,16 @@
       wrap = false;
     };
 
+    keymaps = [
+      {
+        action = "<Cmd>Telescope file_browser<CR>";
+        key = "<Tab>";
+        options = {
+          silent = true;
+        };
+      }
+    ];
+
     colorschemes.catppuccin = {
       enable = true;
       settings = {
@@ -23,6 +33,10 @@
         no_italic = true;
       };
     };
+
+    plugins.lualine.enable = true;
+    plugins.luasnip.enable = true;
+    plugins.web-devicons.enable = true;
 
     plugins.lsp = {
       enable = true;
@@ -38,8 +52,6 @@
       };
     };
 
-    plugins.luasnip.enable = true;
-
     plugins.cmp = {
       enable = true;
       autoEnableSources = true;
@@ -54,8 +66,6 @@
         window.completion.border = "rounded";
       };
     };
-
-    plugins.web-devicons.enable = true;
 
     plugins.telescope = {
       enable = true;
