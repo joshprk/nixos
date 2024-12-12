@@ -9,6 +9,7 @@
     swww
     
     python313
+    ripgrep
   ];
 
   systemd.user.services.swww-daemon = {
