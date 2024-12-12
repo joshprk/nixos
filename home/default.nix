@@ -3,7 +3,6 @@
     ./programs.nix
     ./hypr.nix
     ./nvim.nix
-    ./shells.nix
   ];
 
   home.username = "joshua";
