@@ -53,6 +53,7 @@
           "SUPER, SUPER_L, exec, alacritty"
           "ALT, TAB, cyclenext"
           "ALT, TAB, bringactivetotop"
+          "ALT, T, togglefloating"
         ]
         ++ numKeys
         ++ directionals;
