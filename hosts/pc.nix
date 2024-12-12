@@ -21,10 +21,7 @@
     '';
   };
 
-  networking.interfaces."eno1".wakeOnLan = {
-    enable = true;
-    policy = ["magic" "unicast"];
-  };
+  powerManagement.enable = true;
 
   zramSwap.enable = true;
 }

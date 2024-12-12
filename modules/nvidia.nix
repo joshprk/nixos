@@ -6,7 +6,7 @@
 
     powerManagement.enable = true;
 
-    open = false;
+    open = true;
     nvidiaSettings = false;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
