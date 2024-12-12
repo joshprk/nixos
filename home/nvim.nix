@@ -47,7 +47,9 @@
 
     autoCmd = [
       {
-        command = "setlocal nonumber norelativenumber | setlocal signcolumn=no | tnoremap <Esc> <C-\\><C-n>";
+        command = ''
+          setlocal nonumber norelativenumber | setlocal signcolumn=no | tnoremap <Esc> <C-\\><C-n>"
+        '';
         event = ["TermOpen"];
         pattern = ["*"];
       }
