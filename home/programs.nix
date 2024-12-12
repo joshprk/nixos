@@ -7,26 +7,16 @@
     nerd-fonts.jetbrains-mono
     brightnessctl
     wl-clipboard
-    swww
     
     python313
     ripgrep
   ];
 
-  systemd.user.services.swww-daemon = {
-    Unit = {
-      Description = "Starts swww daemon";
-      After = ["graphical-session-pre.target"];
-      PartOf = ["graphical-session.target"];
-    };
-
-    Install = { WantedBy = ["graphical-session.target"]; };
-    Service = { ExecStart = "${pkgs.swww}/bin/swww-daemon"; };
-  };
-
   programs.alacritty = {
     enable = true;
-    settings = {};
+    settings = {
+      font.normal.family = "JetBrainsMono Nerd Font";
+    };
   };
 
   programs.firefox = {
