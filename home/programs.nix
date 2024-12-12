@@ -11,6 +11,13 @@
     python313
   ];
 
+  programs.wpaperd = {
+    enable = true;
+    settings = {
+      any.path = ./assets/catbg.gif;
+    };
+  };
+
   programs.alacritty = {
     enable = true;
     settings = {};
