@@ -34,6 +34,8 @@
       };
     };
 
+    performance.byteCompileLua.enable = true;
+
     plugins.lualine.enable = true;
     plugins.luasnip.enable = true;
     plugins.web-devicons.enable = true;
