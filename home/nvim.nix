@@ -30,7 +30,7 @@
 
     autoCmd = [
       {
-        command = "setlocal nonumber norelativenumber";
+        command = "setlocal nonumber norelativenumber | setlocal signcolumn=no";
         event = ["TermOpen"];
         pattern = ["*"];
       }
