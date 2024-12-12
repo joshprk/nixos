@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     brightnessctl
+    wl-clipboard
     swww
     
     python313

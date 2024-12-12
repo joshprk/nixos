@@ -14,6 +14,8 @@
       swapfile = false;
       wrap = false;
 
+      clipboard = "unnamedplus";
+
       splitbelow = true;
       splitright = true;
     };
@@ -25,6 +27,21 @@
         options = {
           silent = true;
         };
+      }
+      {
+        action = "y";
+        key = "<C-c>";
+        mode = ["v"];
+      }
+      {
+        action = "<Esc>pa";
+        key = "<C-v>";
+        mode = ["i"];
+      }
+      {
+        action = "p";
+        key = "<C-v>";
+        mode = ["n"];
       }
     ];
 
