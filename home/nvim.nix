@@ -13,6 +13,9 @@
       smartindent = true;
       swapfile = false;
       wrap = false;
+
+      splitbelow = true;
+      splitright = true;
     };
 
     keymaps = [
@@ -22,6 +25,14 @@
         options = {
           silent = true;
         };
+      }
+    ];
+
+    autoCmd = [
+      {
+        command = "setlocal nonumber norelativenumber";
+        event = ["TermOpen"];
+        pattern = ["*"];
       }
     ];
 
