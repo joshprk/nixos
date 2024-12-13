@@ -38,5 +38,6 @@
   nix.settings = {
     use-xdg-base-directories = true;
     extra-experimental-features = ["nix-command" "flakes"];
+    trusted-users = ["@root" "@wheel"];
   };
 }
