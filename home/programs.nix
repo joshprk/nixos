@@ -7,7 +7,7 @@
     nerd-fonts.jetbrains-mono
     brightnessctl
     wl-clipboard
-    
+
     python313
     ripgrep
   ];

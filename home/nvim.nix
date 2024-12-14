@@ -1,4 +1,9 @@
-{config, lib, pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -42,6 +47,11 @@
         action = "p";
         key = "<C-v>";
         mode = ["n"];
+      }
+      {
+        action = "x<C-v>";
+        key = "<C-v>";
+        mode = ["v"];
       }
     ];
 
