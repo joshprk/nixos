@@ -11,7 +11,9 @@
 
   home.sessionVariables = {
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
+    CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
     PYTHON_HISTORY = "${config.xdg.stateHome}/python/history";
+    IPYTHONDIR = "${config.xdg.configHome}/ipython";
   };
 
   home.shellAliases = {
