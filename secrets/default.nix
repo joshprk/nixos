@@ -5,5 +5,6 @@
 
   age.secrets = {
     user.file = ./user.age;
+    tailscale.file = ./tailscale.age;
   };
 }
