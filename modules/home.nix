@@ -24,8 +24,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    extraSpecialArgs = {inherit inputs;};
     sharedModules = with inputs; [
       nixvim.homeManagerModules.nixvim
+      ags.homeManagerModules.default
     ];
 
     users.joshua = import ../home;

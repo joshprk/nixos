@@ -1,16 +1,26 @@
 {
   config,
   pkgs,
+  inputs,
   ...
-} @ inputs: {
+}: {
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     brightnessctl
     wl-clipboard
-
-    python313
     ripgrep
   ];
+
+  programs.ags = {
+    enable = true;
+    configDir = ../astal;
+
+    extraPackages = with pkgs; let
+      astalPkgs = inputs.ags.packages.${pkgs.system};
+    in [
+      astalPkgs.battery
+    ];
+  };
 
   programs.alacritty = {
     enable = true;

@@ -18,6 +18,11 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ags = {
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -101,6 +106,7 @@
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
           self.inputs.agenix.packages.${system}.default
+          self.inputs.ags.packages.${system}.default
           sbctl
           git
         ];
