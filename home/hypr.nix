@@ -6,7 +6,6 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-
     settings = {
       monitor = ", highrr, auto, 1, bitdepth, 10";
 
@@ -18,10 +17,7 @@
         rounding = 6;
         active_opacity = 0.9;
         inactive_opacity = 0.88;
-
-        blur = {
-          enabled = false;
-        };
+        blur.enabled = false;
       };
 
       input = {
@@ -38,43 +34,30 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         font_family = "JetBrainsMono NerdFont";
+        focus_on_activate = true;
         vrr = 2;
       };
 
       bind = let
-        numKeys = builtins.concatLists (
-          builtins.genList (
-            i: let
-              ws = i + 1;
-            in [
-              "ALT, code:1${toString i}, workspace, ${toString ws}"
-              "ALT SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-            ]
-          )
-          9
-        );
+        numKeys = builtins.concatLists (builtins.genList (i: let
+          ws = i + 1;
+        in [
+          "ALT, code:1${toString i}, workspace, ${toString ws}"
+          "ALT SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+        ]) 9);
 
-        directionals =
-          builtins.concatMap
-          (delta: [
-            "ALT, ${delta}, movefocus, ${builtins.substring 0 1 delta}"
-            "ALT SHIFT, ${delta}, movewindow, ${builtins.substring 0 1 delta}"
-          ])
-          [
-            "left"
-            "right"
-            "up"
-            "down"
-          ];
-      in
-        [
-          "SUPER, SUPER_L, exec, ghostty"
-          "ALT, TAB, cyclenext"
-          "ALT, TAB, bringactivetotop"
-          "ALT, T, togglefloating"
-        ]
-        ++ numKeys
-        ++ directionals;
+        directionals = builtins.concatMap (delta: [
+          "ALT, ${delta}, movefocus, ${builtins.substring 0 1 delta}"
+          "ALT SHIFT, ${delta}, movewindow, ${builtins.substring 0 1 delta}"
+        ]) ["left" "right" "up" "down"];
+      in [
+        "SUPER, SUPER_L, exec, ghostty"
+        "ALT, TAB, cyclenext"
+        "ALT, TAB, bringactivetotop"
+        "ALT, T, togglefloating"
+      ]
+      ++ numKeys
+      ++ directionals;
 
       bindm = [
         "SUPER, mouse:272, movewindow"
