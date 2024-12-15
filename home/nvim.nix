@@ -16,6 +16,7 @@
       tabstop = 2;
       autoindent = true;
       smartindent = true;
+      laststatus = 3;
       swapfile = false;
       wrap = false;
 

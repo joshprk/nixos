@@ -7,8 +7,8 @@
     nerd-fonts.jetbrains-mono
     brightnessctl
     wl-clipboard
-    ripgrep
     mpvpaper
+    mpv
 
     inputs.ghostty.packages.${pkgs.system}.default
   ];
@@ -44,6 +44,24 @@
     extraConfig = {
       init.defaultBranch = "main";
       safe.directory = "/etc/nixos";
+    };
+  };
+
+  programs.ripgrep = {
+    enable = true;
+    arguments = [];
+  };
+
+  programs.mpv = {
+    enable = true;
+    config = {};
+  };
+
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "Default";
+      theme_background = false;
     };
   };
 
