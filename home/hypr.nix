@@ -8,7 +8,6 @@
     enable = true;
 
     settings = {
-      exec-once = "ags run";
       monitor = ", highrr, auto, 1, bitdepth, 10";
 
       general = {
