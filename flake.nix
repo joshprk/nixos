@@ -25,7 +25,8 @@
     };
 
     ghostty = {
-      url = "github:ghostty-org/ghostty";
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
       inputs.nixpkgs-unstable.follows = "nixpkgs";
     };
   };
@@ -49,23 +50,33 @@
       extraModules,
     }: let
       pkgs = getPkgs system;
-    in
-      lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit pkgs system;} // self.inputs;
-        modules = with self.inputs;
-          [
-            {networking.hostName = hostName;}
-            {system.stateVersion = stateVersion;}
-            ./hardware/${lib.strings.toLower hostName}.nix
-            ./hosts/${lib.strings.toLower hostName}.nix
-            ./secrets
-            impermanence.nixosModules.impermanence
-            lanzaboote.nixosModules.lanzaboote
-            home-manager.nixosModules.home-manager
-            agenix.nixosModules.default
-          ]
-          ++ extraModules;
+    in lib.nixosSystem {
+      inherit system;
+      specialArgs = {inherit pkgs system;} // self.inputs;
+      modules = with self.inputs; [
+        {networking.hostName = hostName;}
+        {system.stateVersion = stateVersion;}
+        
+        {
+          home-manager = {
+            extraSpecialArgs = self.inputs;
+            sharedModules = [
+              nixvim.homeManagerModules.nixvim
+              ags.homeManagerModules.default
+            ];
+          };
+        }
+
+        ./hardware/${lib.strings.toLower hostName}.nix
+        ./hosts/${lib.strings.toLower hostName}.nix
+        ./secrets
+
+        impermanence.nixosModules.impermanence
+        lanzaboote.nixosModules.lanzaboote
+        home-manager.nixosModules.home-manager
+        agenix.nixosModules.default
+      ]
+      ++ extraModules;
       };
   in {
     nixosConfigurations = {
@@ -81,7 +92,7 @@
           ./modules/fwupd.nix
           ./modules/flatpak.nix
           ./modules/nvidia.nix
-          
+
           ./modules/secureboot.nix
 
           ./modules/sshd.nix
@@ -90,18 +101,18 @@
 
       LT = mkSystem {
         hostName = "LT";
-	      system = "x86_64-linux";
-	      stateVersion = "24.05";
-	      extraModules = [
+        system = "x86_64-linux";
+        stateVersion = "24.05";
+        extraModules = [
           ./modules/impermanence.nix
           ./modules/networking.nix
-	        ./modules/home.nix
-	        ./modules/hypr.nix
-	        ./modules/nvidia.nix
+          ./modules/home.nix
+          ./modules/hypr.nix
+          ./modules/nvidia.nix
           ./modules/fwupd.nix
 
           ./modules/tailscale.nix
-	      ];
+        ];
       };
     };
 

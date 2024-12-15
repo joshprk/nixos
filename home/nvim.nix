@@ -34,7 +34,7 @@
         };
       }
       {
-        action = "y";
+        action = "ygv";
         key = "<C-c>";
         mode = ["v"];
       }
@@ -46,22 +46,17 @@
       {
         action = "p";
         key = "<C-v>";
-        mode = ["n"];
-      }
-      {
-        action = "x<C-v>";
-        key = "<C-v>";
-        mode = ["v"];
+        mode = ["n" "v"];
       }
     ];
 
     autoCmd = [
       {
         command = ''
-          setlocal nonumber norelativenumber | setlocal signcolumn=no | tnoremap <Esc> <C-\><C-n>
+          setlocal nonumber norelativenumber | setlocal signcolumn=no | tnoremap <Esc> <C-\><C-n> | startinsert
         '';
-        event = ["TermOpen"];
-        pattern = ["*"];
+        event = ["TermOpen" "TermEnter"];
+        pattern = ["term://*"];
       }
     ];
 
@@ -79,6 +74,7 @@
     plugins.lualine.enable = true;
     plugins.luasnip.enable = true;
     plugins.web-devicons.enable = true;
+    plugins.gitsigns.enable = true;
 
     plugins.lsp = {
       enable = true;

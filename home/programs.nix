@@ -1,14 +1,16 @@
 {
   config,
   pkgs,
-  inputs,
   ...
-}: {
+} @ inputs: {
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     brightnessctl
     wl-clipboard
     ripgrep
+    mpvpaper
+
+    inputs.ghostty.packages.${pkgs.system}.default
   ];
 
   programs.ags = {
@@ -20,13 +22,6 @@
     in [
       astalPkgs.battery
     ];
-  };
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      font.normal.family = "JetBrainsMono Nerd Font";
-    };
   };
 
   programs.firefox = {

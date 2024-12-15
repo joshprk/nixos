@@ -12,7 +12,14 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "ahci"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
@@ -20,19 +27,31 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = ["defaults" "noatime" "size=25%" "mode=755"];
+    options = [
+      "defaults"
+      "noatime"
+      "size=25%"
+      "mode=755"
+    ];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/F48A-7F70";
     fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/65c9f4aa-159e-4d65-8d88-3513f9b68a8e";
     fsType = "btrfs";
-    options = ["noatime" "compress=zstd" "subvol=@nix"];
+    options = [
+      "noatime"
+      "compress=zstd"
+      "subvol=@nix"
+    ];
   };
 
   boot.initrd.luks.devices."nixos-enc".device = "/dev/disk/by-uuid/00d2b5e5-d0cc-4418-879a-07677c2ec12c";
@@ -40,7 +59,11 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/65c9f4aa-159e-4d65-8d88-3513f9b68a8e";
     fsType = "btrfs";
-    options = ["noatime" "compress=zstd" "subvol=@home"];
+    options = [
+      "noatime"
+      "compress=zstd"
+      "subvol=@home"
+    ];
   };
 
   swapDevices = [];
