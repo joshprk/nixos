@@ -13,6 +13,14 @@
     inputs.ghostty.packages.${pkgs.system}.default
   ];
 
+  home.file."${config.xdg.configHome}/ghostty/config" = {
+    enable = true;
+    target = "${config.xdg.configHome}/ghostty/config";
+    text = ''
+      window-decoration = false
+    '';
+  };
+
   programs.ags = {
     enable = true;
     configDir = ../astal;
