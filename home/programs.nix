@@ -54,7 +54,10 @@
 
   programs.mpv = {
     enable = true;
-    config = {};
+    config = {
+      vo = "kitty";
+      vo-kitty-use-shm = "yes";
+    };
   };
 
   programs.btop = {
