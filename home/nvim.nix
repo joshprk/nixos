@@ -20,8 +20,6 @@
       swapfile = false;
       wrap = false;
 
-      clipboard = "unnamedplus";
-
       splitbelow = true;
       splitright = true;
     };
@@ -35,17 +33,17 @@
         };
       }
       {
-        action = "ygv";
+        action = "\"+ygv";
         key = "<C-c>";
         mode = ["v"];
       }
       {
-        action = "<Esc>pa";
+        action = "<C-r>+";
         key = "<C-v>";
         mode = ["i"];
       }
       {
-        action = "p";
+        action = "\"+p";
         key = "<C-v>";
         mode = ["n" "v"];
       }
@@ -91,19 +89,8 @@
       };
     };
 
-    plugins.cmp = {
+    plugins.blink-cmp = {
       enable = true;
-      autoEnableSources = true;
-      settings = {
-        sources = [
-          {name = "luasnip";}
-          {name = "nvim_lsp";}
-          {name = "path";}
-          {name = "buffer";}
-        ];
-
-        window.completion.border = "rounded";
-      };
     };
 
     plugins.telescope = {
