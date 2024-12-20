@@ -19,6 +19,16 @@
     '';
   };
 
+  # Prevents wireless mouse from preventing suspend
+  services.udev.extraRules = ''
+    ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c547", ATTR{power/wakeup}="disabled"
+  '';
+
+  networking.interfaces."eno1".wakeOnLan = {
+    enable = true;
+    policy = ["unicast" "magic"];
+  };
+
   powerManagement = {
     enable = true;
   };
