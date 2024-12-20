@@ -57,11 +57,6 @@
     };
   };
 
-  programs.ripgrep = {
-    enable = true;
-    arguments = [];
-  };
-
   programs.ranger = {
     enable = true;
   };

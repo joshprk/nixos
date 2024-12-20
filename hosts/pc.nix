@@ -26,7 +26,7 @@
 
   networking.interfaces."eno1".wakeOnLan = {
     enable = true;
-    policy = ["unicast" "magic"];
+    policy = ["magic"];
   };
 
   powerManagement = {

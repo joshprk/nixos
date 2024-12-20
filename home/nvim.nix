@@ -26,13 +26,6 @@
 
     keymaps = [
       {
-        action = "<Cmd>Telescope file_browser<CR>";
-        key = "<Tab>";
-        options = {
-          silent = true;
-        };
-      }
-      {
         action = "\"+ygv";
         key = "<C-c>";
         mode = ["v"];
@@ -102,11 +95,8 @@
       enable = true;
     };
 
-    plugins.telescope = {
+    plugins.fzf-lua = {
       enable = true;
-      extensions = {
-        file-browser.enable = true;
-      };
     };
   };
 }
