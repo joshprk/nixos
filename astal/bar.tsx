@@ -2,7 +2,7 @@ import { Variable, GLib } from "astal"
 import { Astal, Gtk } from "astal/gtk3"
 import Battery from "gi://AstalBattery"
 
-function Time({ format = "%H:%M - %A %e" }) {
+function Time({ format = "%I:%M %p" }) {
   const time = Variable<string>("").poll(1000, () =>
     GLib.DateTime.new_now_local().format(format)!)
 
