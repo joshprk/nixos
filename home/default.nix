@@ -25,6 +25,14 @@
     steam = "flatpak run com.valvesoftware.Steam";
   };
 
+  home.pointerCursor = {
+    name = "catppuccin-mocha-dark-cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
+    size = 22;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   gtk = {
     enable = true;
 
