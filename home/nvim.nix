@@ -70,13 +70,6 @@
     plugins.noice.enable = true;
     plugins.which-key.enable = true;
 
-    plugins.snacks = {
-      enable = true;
-      settings = {
-        scroll.enable = true;
-      };
-    };
-
     plugins.lsp = {
       enable = true;
       servers = {
