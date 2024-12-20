@@ -21,11 +21,6 @@
     '';
   };
 
-  # Disable Logitech Superlight from resuming PC
-  services.udev.extraRules = ''
-    ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c547", ATTR{power/wakeup}="disabled"
-  '';
-
   powerManagement = {
     enable = true;
   };
