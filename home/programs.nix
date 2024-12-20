@@ -18,6 +18,8 @@
     target = "${config.xdg.configHome}/ghostty/config";
     text = ''
       window-decoration = false
+      window-padding-x = 4
+      window-padding-y = 4
     '';
   };
 
@@ -58,6 +60,10 @@
   programs.ripgrep = {
     enable = true;
     arguments = [];
+  };
+
+  programs.ranger = {
+    enable = true;
   };
 
   programs.mpv = {

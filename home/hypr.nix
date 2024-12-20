@@ -72,16 +72,19 @@
   services.hypridle = {
     enable = true;
     settings = {
+      general = {
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+
       listener = [
         {
-          timeout = 60;
+          timeout = 180;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
         {
           timeout = 300;
           on-timeout = "systemctl suspend";
-          on-resume = "hyprctl dispatch dpms on";
         }
       ];
     };

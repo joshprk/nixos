@@ -74,6 +74,15 @@
     plugins.luasnip.enable = true;
     plugins.web-devicons.enable = true;
     plugins.gitsigns.enable = true;
+    plugins.noice.enable = true;
+    plugins.which-key.enable = true;
+
+    plugins.snacks = {
+      enable = true;
+      settings = {
+        scroll.enable = true;
+      };
+    };
 
     plugins.lsp = {
       enable = true;
