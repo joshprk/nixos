@@ -27,6 +27,13 @@
 
   gtk = {
     enable = true;
+
+    font = {
+      name = "JetBrainsMono NerdFont";
+      size = 12;
+      package = pkgs.nerd-fonts.jetbrains-mono;
+    };
+
     theme = {
       name = "Adwaita-dark";
       package = pkgs.gnome-themes-extra;
