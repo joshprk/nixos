@@ -7,8 +7,6 @@
     nerd-fonts.jetbrains-mono
     brightnessctl
     wl-clipboard
-    mpvpaper
-
     inputs.ghostty.packages.${pkgs.system}.default
   ];
 
@@ -25,7 +23,6 @@
   programs.ags = {
     enable = true;
     configDir = ../astal;
-
     extraPackages = with pkgs; let
       astalPkgs = inputs.ags.packages.${pkgs.system};
     in [

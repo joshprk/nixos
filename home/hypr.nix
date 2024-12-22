@@ -7,10 +7,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      exec-once = ''
-        mpvpaper -p -o "loop no-audio --vd-lavc-skipframe=bidir --container-fps-override=30" DP-2 ~/.config/wallpaper.mp4
-      '';
-
       monitor = ", highrr, auto, 1, bitdepth, 10";
 
       general = {
@@ -19,7 +15,7 @@
 
       decoration = {
         rounding = 6;
-        active_opacity = 0.9;
+        active_opacity = 1.0;
         inactive_opacity = 0.88;
         blur.enabled = false;
       };
