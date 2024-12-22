@@ -19,18 +19,11 @@
     CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
     PYTHON_HISTORY = "${config.xdg.stateHome}/python/history";
     IPYTHONDIR = "${config.xdg.configHome}/ipython";
+    XCURSOR_PATH = "/usr/share/icons:${config.xdg.dataHome}/icons";
   };
 
   home.shellAliases = {
     steam = "flatpak run com.valvesoftware.Steam";
-  };
-
-  home.pointerCursor = {
-    name = "catppuccin-mocha-dark-cursors";
-    package = pkgs.catppuccin-cursors.mochaDark;
-    size = 18;
-    gtk.enable = true;
-    x11.enable = true;
   };
 
   gtk = {
@@ -53,5 +46,9 @@
   xdg = {
     enable = true;
     userDirs.createDirectories = false;
+  };
+
+  xresources = {
+    path = "${config.xdg.configHome}/x11/xresources";
   };
 }

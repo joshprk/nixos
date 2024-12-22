@@ -8,7 +8,6 @@
     brightnessctl
     wl-clipboard
     mpvpaper
-    mpv
 
     inputs.ghostty.packages.${pkgs.system}.default
   ];

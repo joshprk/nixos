@@ -21,6 +21,7 @@
 
   # Prevents wireless mouse from preventing suspend
   services.udev.extraRules = ''
+    ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c094", ATTR{power/wakeup}="disabled"
     ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c547", ATTR{power/wakeup}="disabled"
   '';
 

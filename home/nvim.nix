@@ -16,12 +16,15 @@
       tabstop = 2;
       autoindent = true;
       smartindent = true;
+      cindent = true;
       laststatus = 3;
       swapfile = false;
       wrap = false;
 
       splitbelow = true;
       splitright = true;
+
+      fillchars.eob = " ";
     };
 
     keymaps = [
@@ -31,12 +34,12 @@
         mode = ["v"];
       }
       {
-        action = "<C-r>+";
+        action = "<Esc>\"+gPv`[=`]$a";
         key = "<C-v>";
         mode = ["i"];
       }
       {
-        action = "\"+p";
+        action = "\"+gPv`[=`]$";
         key = "<C-v>";
         mode = ["n" "v"];
       }
@@ -86,6 +89,11 @@
 
     plugins.blink-cmp = {
       enable = true;
+      settings = {
+        keymap = {
+          "<C-space>" = ["select_and_accept"];
+        };
+      };
     };
 
     plugins.fzf-lua = {
