@@ -8,8 +8,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # fix stutter on terminal due to offload
-  # boot.kernelParams = ["amdgpu.dcdebugmask=0x10"];
-
+  boot.kernelParams = ["amdgpu.dcdebugmask=0x10"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.initrd.luks.devices = {

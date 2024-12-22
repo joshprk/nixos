@@ -7,6 +7,7 @@
     nerd-fonts.jetbrains-mono
     brightnessctl
     wl-clipboard
+    inputs.zen-browser.packages.${pkgs.system}.specific
     inputs.ghostty.packages.${pkgs.system}.default
   ];
 
@@ -18,16 +19,6 @@
       window-padding-x = 4
       window-padding-y = 4
     '';
-  };
-
-  programs.ags = {
-    enable = true;
-    configDir = ../astal;
-    extraPackages = with pkgs; let
-      astalPkgs = inputs.ags.packages.${pkgs.system};
-    in [
-      astalPkgs.battery
-    ];
   };
 
   programs.firefox = {
