@@ -1,4 +1,9 @@
-{...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
@@ -20,7 +25,11 @@
     wireplumber.enable = true;
   };
 
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    excludePackages = [pkgs.xterm];
+  };
+
   programs.hyprland.enable = true;
 
   security.rtkit.enable = true;

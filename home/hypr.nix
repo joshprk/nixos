@@ -7,15 +7,21 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      exec-once = [
+        "hyprctl setcursor catppuccin-macchiato-dark-cursors 32"
+      ];
+
       monitor = ", highrr, auto, 1, bitdepth, 10";
 
       general = {
+        gaps_in = 5;
+        gaps_out = 10;
         resize_on_border = true;
       };
 
       decoration = {
         rounding = 6;
-        active_opacity = 1.0;
+        active_opacity = 0.92;
         inactive_opacity = 0.88;
         blur.enabled = false;
       };
@@ -38,6 +44,12 @@
         vrr = 2;
       };
 
+      windowrulev2 = [
+        "pin, class:Rofi"
+        "stayfocused, class:Rofi"
+        "noanim, class:Rofi"
+      ];
+
       bind = let
         numKeys = builtins.concatLists (builtins.genList (i: let
           ws = i + 1;
@@ -51,10 +63,13 @@
           "ALT SHIFT, ${delta}, movewindow, ${builtins.substring 0 1 delta}"
         ]) ["left" "right" "up" "down"];
       in [
-        "SUPER, SUPER_L, exec, ghostty"
+        "SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"
+        ", Print, exec, hyprshot -m region --clipboard-only"
         "ALT, TAB, cyclenext"
         "ALT, TAB, bringactivetotop"
         "ALT, T, togglefloating"
+        "ALT, ENTER, fullscreen"
+        "ALT, F4, killactive"
       ]
       ++ numKeys
       ++ directionals;
@@ -84,5 +99,9 @@
         }
       ];
     };
+  };
+
+  programs.hyprlock = {
+    enable = true;
   };
 }

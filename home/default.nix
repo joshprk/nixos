@@ -3,11 +3,13 @@
   lib,
   pkgs,
   ...
-}: {
+} @ inputs: {
   imports = [
-    ./programs.nix
     ./hypr.nix
     ./nvim.nix
+    ./programs.nix
+    ./stylix.nix
+    ./waybar.nix
   ];
 
   home.username = "joshua";
@@ -20,6 +22,8 @@
     PYTHON_HISTORY = "${config.xdg.stateHome}/python/history";
     IPYTHONDIR = "${config.xdg.configHome}/ipython";
     XCURSOR_PATH = "/usr/share/icons:${config.xdg.dataHome}/icons";
+
+    TERMINAL="${inputs.ghostty.packages.${pkgs.system}.default}/bin/ghostty";
   };
 
   home.shellAliases = {
@@ -27,19 +31,7 @@
   };
 
   gtk = {
-    enable = true;
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-
-    font = {
-      name = "JetBrainsMono NerdFont";
-      size = 12;
-      package = pkgs.nerd-fonts.jetbrains-mono;
-    };
-
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
-    };
   };
 
   xdg = {

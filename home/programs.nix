@@ -7,31 +7,48 @@
     nerd-fonts.jetbrains-mono
     brightnessctl
     wl-clipboard
+    hyprshot
+
     inputs.zen-browser.packages.${pkgs.system}.specific
     inputs.ghostty.packages.${pkgs.system}.default
   ];
 
-  home.file."${config.xdg.configHome}/ghostty/config" = {
+  services.mako = {
     enable = true;
-    target = "${config.xdg.configHome}/ghostty/config";
+  };
+
+  xdg.configFile.ghostty = {
+    enable = true;
+    target = "ghostty/config";
     text = ''
       window-decoration = false
       window-padding-x = 4
       window-padding-y = 4
-    '';
-  };
 
-  programs.firefox = {
-    enable = true;
-    policies = {
-      DisableTelemetry = true;
-      DisableFirefoxStudies = true;
-      DisablePocket = true;
-      DisableFirefoxAccounts = true;
-      DisableAccounts = true;
-      DisableFirefoxScreenshots = true;
-      DontCheckDefaultBrowser = true;
-    };
+      gtk-single-instance = true
+
+      palette = 0=#494d64
+      palette = 1=#ed8796
+      palette = 2=#a6da95
+      palette = 3=#eed49f
+      palette = 4=#8aadf4
+      palette = 5=#f5bde6
+      palette = 6=#8bd5ca
+      palette = 7=#b8c0e0
+      palette = 8=#5b6078
+      palette = 9=#ed8796
+      palette = 10=#a6da95
+      palette = 11=#eed49f
+      palette = 12=#8aadf4
+      palette = 13=#f5bde6
+      palette = 14=#8bd5ca
+      palette = 15=#a5adcb
+      background = 24273a
+      foreground = cad3f5
+      cursor-color = f4dbd6
+      selection-background = 3a3e53
+      selection-foreground = cad3f5
+    '';
   };
 
   programs.git = {
@@ -41,6 +58,16 @@
     extraConfig = {
       init.defaultBranch = "main";
       safe.directory = "/etc/nixos";
+    };
+  };
+
+  programs.rofi = {
+    enable = true;
+    extraConfig = {
+      hover-select = true;
+      terminal = "ghostty";
+      me-select-entry = "";
+      me-accept-entry = [ "MousePrimary" "MouseSecondary" "MouseDPrimary" ];
     };
   };
 
@@ -58,10 +85,6 @@
 
   programs.btop = {
     enable = true;
-    settings = {
-      color_theme = "Default";
-      theme_background = false;
-    };
   };
 
   programs.zsh = {
