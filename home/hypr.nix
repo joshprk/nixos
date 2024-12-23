@@ -21,7 +21,7 @@
 
       decoration = {
         rounding = 6;
-        active_opacity = 0.92;
+        active_opacity = 0.95;
         inactive_opacity = 0.88;
         blur.enabled = false;
       };
@@ -62,13 +62,13 @@
           "ALT, ${delta}, movefocus, ${builtins.substring 0 1 delta}"
           "ALT SHIFT, ${delta}, movewindow, ${builtins.substring 0 1 delta}"
         ]) ["left" "right" "up" "down"];
-      in [
+      in [ 
         "SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"
+        "SUPER, W, exec, pkill -SIGUSR1 waybar"
         ", Print, exec, hyprshot -m region --clipboard-only"
         "ALT, TAB, cyclenext"
         "ALT, TAB, bringactivetotop"
         "ALT, T, togglefloating"
-        "ALT, ENTER, fullscreen"
         "ALT, F4, killactive"
       ]
       ++ numKeys

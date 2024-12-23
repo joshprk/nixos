@@ -1,7 +1,7 @@
 {
   config,
+  lib,
   pkgs,
-  system,
   ...
 } @ inputs: {
   users = {
@@ -19,6 +19,10 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCBom//Vs1SSCBq9JxLloFZEBmkrZ81utid4eg3PfTe joshua@PC"
       ];
     };
+  };
+
+  environment.sessionVariables = {
+    CUDA_CACHE_PATH = "$HOME/.cache/nv";
   };
 
   home-manager = {

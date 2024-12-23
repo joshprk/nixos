@@ -22,7 +22,7 @@
         modules-right = ["tray" "battery" "clock"];
 
         tray = {
-          spacing = 2;
+          spacing = 4;
         };
 
         battery = {

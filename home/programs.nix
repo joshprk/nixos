@@ -27,27 +27,27 @@
 
       gtk-single-instance = true
 
-      palette = 0=#494d64
-      palette = 1=#ed8796
-      palette = 2=#a6da95
-      palette = 3=#eed49f
-      palette = 4=#8aadf4
-      palette = 5=#f5bde6
-      palette = 6=#8bd5ca
-      palette = 7=#b8c0e0
-      palette = 8=#5b6078
-      palette = 9=#ed8796
-      palette = 10=#a6da95
-      palette = 11=#eed49f
-      palette = 12=#8aadf4
-      palette = 13=#f5bde6
-      palette = 14=#8bd5ca
-      palette = 15=#a5adcb
-      background = 24273a
-      foreground = cad3f5
-      cursor-color = f4dbd6
-      selection-background = 3a3e53
-      selection-foreground = cad3f5
+      palette = 0=#45475a
+      palette = 1=#f38ba8
+      palette = 2=#a6e3a1
+      palette = 3=#f9e2af
+      palette = 4=#89b4fa
+      palette = 5=#f5c2e7
+      palette = 6=#94e2d5
+      palette = 7=#bac2de
+      palette = 8=#585b70
+      palette = 9=#f38ba8
+      palette = 10=#a6e3a1
+      palette = 11=#f9e2af
+      palette = 12=#89b4fa
+      palette = 13=#f5c2e7
+      palette = 14=#94e2d5
+      palette = 15=#a6adc8
+      background = 1e1e2e
+      foreground = cdd6f4
+      cursor-color = f5e0dc
+      selection-background = 353749
+      selection-foreground = cdd6f4
     '';
   };
 

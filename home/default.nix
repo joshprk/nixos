@@ -29,6 +29,12 @@
   home.shellAliases = {
     steam = "flatpak run com.valvesoftware.Steam";
   };
+  
+  # Disable backwards compatibility .icons folder from polluting $HOME
+  home.file = {
+    ".icons/default/index.theme".enable = false;
+    ".icons/${config.stylix.cursor.name}".enable = false;
+  };
 
   gtk = {
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";

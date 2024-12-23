@@ -6,7 +6,7 @@
 }: {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
     image = pkgs.fetchurl {
       url = "https://w.wallhaven.cc/full/3l/wallhaven-3lv8j6.jpg";
@@ -14,8 +14,8 @@
     };
 
     cursor = {
-      name = "catppuccin-macchiato-dark-cursors";
-      package = pkgs.catppuccin-cursors.macchiatoDark;
+      name = "catppuccin-mocha-dark-cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
       size = 24;
     };
 
@@ -32,6 +32,7 @@
     targets = {
       nixvim.enable = false;
       hyprpaper.enable = lib.mkForce false;
+      hyprland.enable = false;
     };
   };
 }
