@@ -8,12 +8,14 @@
     brightnessctl
     wl-clipboard
     hyprshot
+    nautilus
 
+    inputs.hyprland-qtutils.packages.${pkgs.system}.default
     inputs.zen-browser.packages.${pkgs.system}.specific
     inputs.ghostty.packages.${pkgs.system}.default
   ];
 
-  services.mako = {
+  services.swaync = {
     enable = true;
   };
 
@@ -69,10 +71,6 @@
       me-select-entry = "";
       me-accept-entry = [ "MousePrimary" "MouseSecondary" "MouseDPrimary" ];
     };
-  };
-
-  programs.ranger = {
-    enable = true;
   };
 
   programs.mpv = {

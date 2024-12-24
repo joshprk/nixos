@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       exec-once = [
-        "hyprctl setcursor catppuccin-macchiato-dark-cursors 32"
+        "hyprctl setcursor catppuccin-macchiato-dark-cursors 22"
       ];
 
       monitor = ", highrr, auto, 1, bitdepth, 10";
@@ -48,6 +48,13 @@
         "pin, class:Rofi"
         "stayfocused, class:Rofi"
         "noanim, class:Rofi"
+        "float, class:steam, title:Friends List"
+        "size 20% 30%, class:steama, title:Friends List"
+        "float, class:steam, title:Steam Settings"
+        "float, class:steam, title:Add Non-Steam Game"
+        "float, class:steam, title:System Report"
+        "float, class:steam, title:Steam Runtime System Information"
+        "float, class:steam, title:Recordings & Screenshots"
       ];
 
       bind = let
@@ -62,7 +69,7 @@
           "ALT, ${delta}, movefocus, ${builtins.substring 0 1 delta}"
           "ALT SHIFT, ${delta}, movewindow, ${builtins.substring 0 1 delta}"
         ]) ["left" "right" "up" "down"];
-      in [ 
+      in [
         "SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"
         "SUPER, W, exec, pkill -SIGUSR1 waybar"
         ", Print, exec, hyprshot -m region --clipboard-only"
@@ -74,6 +81,13 @@
       ++ numKeys
       ++ directionals;
 
+      binde = [
+        "ALT CTRL, left, resizeactive, -10 0"
+        "ALT CTRL, right, resizeactive, 10 0"
+        "ALT CTRL, up, resizeactive, 0 -10"
+        "ALT CTRL, down, resizeactive, 0 10"
+      ];
+
       bindm = [
         "SUPER, mouse:272, movewindow"
       ];
@@ -83,10 +97,6 @@
   services.hypridle = {
     enable = true;
     settings = {
-      general = {
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-      };
-
       listener = [
         {
           timeout = 180;
