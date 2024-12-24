@@ -68,6 +68,7 @@
         {system.stateVersion = stateVersion;}
         
         {
+	  users.root.hashedPasswordFile = config.age.secrets.user.path;
           home-manager = {
             extraSpecialArgs = self.inputs;
             sharedModules = [

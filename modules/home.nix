@@ -8,7 +8,6 @@
     mutableUsers = false;
     defaultUserShell = pkgs.zsh;
 
-    users.root.hashedPasswordFile = config.age.secrets.user.path;
     users.joshua = {
       isNormalUser = true;
       useDefaultShell = true;
