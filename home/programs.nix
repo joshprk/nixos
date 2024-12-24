@@ -11,7 +11,7 @@
     nautilus
 
     inputs.hyprland-qtutils.packages.${pkgs.system}.default
-    inputs.zen-browser.packages.${pkgs.system}.specific
+    inputs.zen-browser.packages.${pkgs.system}.default
     inputs.ghostty.packages.${pkgs.system}.default
   ];
 
