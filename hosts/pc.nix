@@ -6,9 +6,7 @@
 }: {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = ["NVreg_PreserveVideoMemoryAllocations=1"];
 
   hardware.nvidia.nvidiaPersistenced = true;
   systemd.services.nvidia-underclock = {

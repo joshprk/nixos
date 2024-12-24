@@ -7,32 +7,28 @@
   users = {
     mutableUsers = false;
     defaultUserShell = pkgs.zsh;
-
     users.joshua = {
       isNormalUser = true;
       useDefaultShell = true;
       extraGroups = ["wheel" "networkmanager"];
       hashedPasswordFile = config.age.secrets.user.path;
-
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCBom//Vs1SSCBq9JxLloFZEBmkrZ81utid4eg3PfTe joshua@PC"
       ];
     };
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.joshua = import ../home;
+  };
+
   environment.sessionVariables = {
     CUDA_CACHE_PATH = "$HOME/.cache/nv";
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-
-    users.joshua = import ../home;
-  };
-
   programs.zsh.enable = true;
-
   time.timeZone = "America/New_York";
 
   nix.settings = {

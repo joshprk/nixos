@@ -67,8 +67,8 @@
         {networking.hostName = hostName;}
         {system.stateVersion = stateVersion;}
         
-        {
-	  users.root.hashedPasswordFile = config.age.secrets.user.path;
+        ({config, ...}: {
+          users.users.root.hashedPasswordFile = config.age.secrets.user.path;
           home-manager = {
             extraSpecialArgs = self.inputs;
             sharedModules = [
@@ -88,7 +88,7 @@
             "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
             "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
           ];
-        }
+        })
 
         ./hardware/${lib.strings.toLower hostName}.nix
         ./hosts/${lib.strings.toLower hostName}.nix

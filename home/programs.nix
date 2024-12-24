@@ -26,7 +26,6 @@
       window-decoration = false
       window-padding-x = 4
       window-padding-y = 4
-
       gtk-single-instance = true
 
       palette = 0=#45475a
@@ -69,7 +68,11 @@
       hover-select = true;
       terminal = "ghostty";
       me-select-entry = "";
-      me-accept-entry = [ "MousePrimary" "MouseSecondary" "MouseDPrimary" ];
+      me-accept-entry = [
+      	"MousePrimary"
+	"MouseSecondary"
+	"MouseDPrimary"
+      ];
     };
   };
 
