@@ -9,8 +9,8 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://w.wallhaven.cc/full/3l/wallhaven-3lv8j6.jpg";
-      sha256 = "sha256-Ed1FWLkTjncyux4RaQ9UVLYamq604nrw0qYSlrXQfu8=";
+      url = "https://raw.githubusercontent.com/D3Ext/aesthetic-wallpapers/main/images/train_and_lake.png";
+      sha256 = "sha256-RUn5fSPHKpQ5XIQs87+hDn2GwB523ueWKEK7eNcMCRM=";
     };
 
     cursor = {
@@ -31,8 +31,6 @@
 
     targets = {
       nixvim.enable = false;
-      hyprpaper.enable = lib.mkForce false;
-      hyprland.enable = false;
     };
   };
 }

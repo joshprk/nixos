@@ -48,13 +48,6 @@
         "pin, class:Rofi"
         "stayfocused, class:Rofi"
         "noanim, class:Rofi"
-        "float, class:steam, title:Friends List"
-        "size 20% 30%, class:steama, title:Friends List"
-        "float, class:steam, title:Steam Settings"
-        "float, class:steam, title:Add Non-Steam Game"
-        "float, class:steam, title:System Report"
-        "float, class:steam, title:Steam Runtime System Information"
-        "float, class:steam, title:Recordings & Screenshots"
       ];
 
       bind = let

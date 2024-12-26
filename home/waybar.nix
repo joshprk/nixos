@@ -40,6 +40,7 @@
         clock = {
           format = " {:%I:%M %p} ";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
+          on-click = "swaync-client -t";
           calendar = {
             mode = "year";
             mode-mon-col = 3;
