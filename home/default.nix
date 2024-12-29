@@ -34,6 +34,7 @@
   home.file = {
     ".icons/default/index.theme".enable = false;
     ".icons/${config.stylix.cursor.name}".enable = false;
+    ".themes/adw-gtk3".enable = false;
   };
 
   gtk = {

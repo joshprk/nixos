@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -63,6 +58,14 @@
           "ALT SHIFT, ${delta}, movewindow, ${builtins.substring 0 1 delta}"
         ]) ["left" "right" "up" "down"];
       in [
+        "SUPER, H, movefocus, l"
+        "SUPER, J, movefocus, d"
+        "SUPER, K, movefocus, u"
+        "SUPER, L, movefocus, r"
+        "SUPER SHIFT, H, movewindow, l"
+        "SUPER SHIFT, J, movewindow, d"
+        "SUPER SHIFT, K, movewindow, u"
+        "SUPER SHIFT, L, movewindow, r"
         "SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"
         "SUPER, W, exec, pkill -SIGUSR1 waybar"
         ", Print, exec, hyprshot -m region --clipboard-only"
@@ -98,7 +101,7 @@
         }
         {
           timeout = 300;
-          on-timeout = "systemctl suspend";
+          on-timeout = "systemctl sleep";
         }
       ];
     };

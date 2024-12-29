@@ -31,6 +31,8 @@
 
     targets = {
       nixvim.enable = false;
+      hyprland.enable = false;
+      hyprpaper.enable = false;
     };
   };
 }
