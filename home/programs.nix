@@ -84,6 +84,7 @@
 
   programs.fzf = {
     enable = true;
+    enableZshIntegration = true;
     defaultOptions = [
       "--bind 'ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up'"
     ];
