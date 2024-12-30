@@ -23,7 +23,7 @@
     IPYTHONDIR = "${config.xdg.configHome}/ipython";
     XCURSOR_PATH = "/usr/share/icons:${config.xdg.dataHome}/icons";
 
-    TERMINAL="${inputs.ghostty.packages.${pkgs.system}.default}/bin/ghostty";
+    TERMINAL="${pkgs.ghostty}/bin/ghostty";
   };
 
   home.shellAliases = {

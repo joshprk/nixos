@@ -21,6 +21,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "bk";
     users.joshua = import ../home;
   };
 

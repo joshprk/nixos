@@ -19,6 +19,7 @@
       signcolumn = "yes:1";
       number = true;
       confirm = true;
+      cursorline = true;
     };
 
     globals = {

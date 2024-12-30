@@ -9,10 +9,8 @@
     wl-clipboard
     hyprshot
     nautilus
-
-    inputs.hyprland-qtutils.packages.${pkgs.system}.default
+    ghostty
     inputs.zen-browser.packages.${pkgs.system}.default
-    inputs.ghostty.packages.${pkgs.system}.default
   ];
 
   services.swaync = {
