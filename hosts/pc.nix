@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -26,7 +21,10 @@
 
   networking.interfaces."eno1".wakeOnLan = {
     enable = true;
-    policy = ["magic" "unicast"];
+    policy = [
+      "magic"
+      "unicast"
+    ];
   };
 
   powerManagement = {

@@ -67,9 +67,9 @@
       terminal = "ghostty";
       me-select-entry = "";
       me-accept-entry = [
-      	"MousePrimary"
-	"MouseSecondary"
-	"MouseDPrimary"
+        "MousePrimary"
+        "MouseSecondary"
+        "MouseDPrimary"
       ];
     };
   };
@@ -84,6 +84,9 @@
 
   programs.fzf = {
     enable = true;
+    defaultOptions = [
+      "--bind 'ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up'"
+    ];
   };
 
   programs.btop = {

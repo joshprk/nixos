@@ -49,46 +49,54 @@
       extraModules,
     }: let
       pkgs = getPkgs system;
-    in lib.nixosSystem {
-      inherit system;
-      specialArgs = {inherit pkgs system;} // self.inputs;
-      modules = with self.inputs; [
-        {networking.hostName = hostName;}
-        {system.stateVersion = stateVersion;}
-        
-        ({config, ...}: {
-          users.users.root.hashedPasswordFile = config.age.secrets.user.path;
-          home-manager = {
-            extraSpecialArgs = self.inputs;
-            sharedModules = [
-              nixvim.homeManagerModules.nixvim
-              stylix.homeManagerModules.stylix
-            ];
-          };
+    in
+      lib.nixosSystem {
+        inherit system;
+        specialArgs =
+          {
+            inherit pkgs system;
+          }
+          // self.inputs;
+        modules = with self.inputs;
+          [
+            {networking.hostName = hostName;}
+            {system.stateVersion = stateVersion;}
 
-          nix.settings.trusted-substituters = [
-            "https://cache.nixos.org/"
-            "https://nix-community.cachix.org"
-            "https://cuda-maintainers.cachix.org"
-          ];
+            (
+              {config, ...}: {
+                users.users.root.hashedPasswordFile = config.age.secrets.user.path;
+                home-manager = {
+                  extraSpecialArgs = self.inputs;
+                  sharedModules = [
+                    nixvim.homeManagerModules.nixvim
+                    stylix.homeManagerModules.stylix
+                  ];
+                };
 
-          nix.settings.trusted-public-keys = [
-            "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-            "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
-          ];
-        })
+                nix.settings.trusted-substituters = [
+                  "https://cache.nixos.org/"
+                  "https://nix-community.cachix.org"
+                  "https://cuda-maintainers.cachix.org"
+                ];
 
-        ./hardware/${lib.strings.toLower hostName}.nix
-        ./hosts/${lib.strings.toLower hostName}.nix
-        ./secrets
+                nix.settings.trusted-public-keys = [
+                  "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+                  "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+                  "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+                ];
+              }
+            )
 
-        impermanence.nixosModules.impermanence
-        lanzaboote.nixosModules.lanzaboote
-        home-manager.nixosModules.home-manager
-        agenix.nixosModules.default
-      ]
-      ++ extraModules;
+            ./hardware/${lib.strings.toLower hostName}.nix
+            ./hosts/${lib.strings.toLower hostName}.nix
+            ./secrets
+
+            impermanence.nixosModules.impermanence
+            lanzaboote.nixosModules.lanzaboote
+            home-manager.nixosModules.home-manager
+            agenix.nixosModules.default
+          ]
+          ++ extraModules;
       };
   in {
     nixosConfigurations = {
@@ -125,18 +133,20 @@
       };
     };
 
-    devShells = forAllSystems (system: let
-      pkgs = getPkgs system;
-    in {
-      default = pkgs.mkShell {
-        buildInputs = with pkgs; [
-          self.inputs.agenix.packages.${system}.default
-          self.inputs.ags.packages.${system}.default
-          sbctl
-          git
-        ];
-      };
-    });
+    devShells = forAllSystems (
+      system: let
+        pkgs = getPkgs system;
+      in {
+        default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            self.inputs.agenix.packages.${system}.default
+            self.inputs.ags.packages.${system}.default
+            sbctl
+            git
+          ];
+        };
+      }
+    );
 
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
   };

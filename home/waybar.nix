@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   programs.waybar = {
     enable = true;
 
@@ -19,7 +14,11 @@
         height = 30;
         modules-left = ["hyprland/workspaces"];
         modules-center = [];
-        modules-right = ["tray" "battery" "clock"];
+        modules-right = [
+          "tray"
+          "battery"
+          "clock"
+        ];
 
         tray = {
           spacing = 4;
@@ -33,7 +32,13 @@
           };
 
           format = "{icon}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
           tooltip-format = "{capacity}%";
         };
 
@@ -63,4 +68,4 @@
       }
     '';
   };
-}         
+}

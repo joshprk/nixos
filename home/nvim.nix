@@ -2,14 +2,14 @@
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
-    
+
     performance.byteCompileLua = {
       enable = true;
       configs = true;
       initLua = true;
       nvimRuntime = true;
     };
-    
+
     opts = {
       expandtab = true;
       tabstop = 2;
@@ -29,19 +29,31 @@
     keymaps = [
       {
         action = "<Cmd>lua require(\"flash\").jump()<CR>";
-        mode = ["n" "x" "o"];
+        mode = [
+          "n"
+          "x"
+          "o"
+        ];
         key = "s";
         options.desc = "Flash";
       }
       {
         action = "<Cmd>lua require(\"flash\").treesitter()<CR>";
-        mode = ["n" "x" "o"];
+        mode = [
+          "n"
+          "x"
+          "o"
+        ];
         key = "S";
         options.desc = "Flash Treesitter";
       }
       {
         action = "<Cmd>FzfLua<CR>";
-        mode = ["n" "x" "o"];
+        mode = [
+          "n"
+          "x"
+          "o"
+        ];
         key = "<leader><leader>";
         options.desc = "FzfLua";
       }
@@ -55,7 +67,7 @@
         no_italic = true;
       };
     };
-    
+
     plugins.lsp = {
       enable = true;
       servers = {
@@ -71,7 +83,7 @@
         auto_install = true;
       };
     };
-    
+
     plugins.blink-cmp = {
       enable = true;
       settings = {

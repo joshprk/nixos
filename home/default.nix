@@ -1,9 +1,8 @@
 {
   config,
-  lib,
   pkgs,
   ...
-} @ inputs: {
+}: {
   imports = [
     ./hypr.nix
     ./nvim.nix
@@ -23,13 +22,13 @@
     IPYTHONDIR = "${config.xdg.configHome}/ipython";
     XCURSOR_PATH = "/usr/share/icons:${config.xdg.dataHome}/icons";
 
-    TERMINAL="${pkgs.ghostty}/bin/ghostty";
+    TERMINAL = "${pkgs.ghostty}/bin/ghostty";
   };
 
   home.shellAliases = {
     steam = "flatpak run com.valvesoftware.Steam";
   };
-  
+
   # Disable backwards compatibility .icons folder from polluting $HOME
   home.file = {
     ".icons/default/index.theme".enable = false;

@@ -46,36 +46,50 @@
       ];
 
       bind = let
-        numKeys = builtins.concatLists (builtins.genList (i: let
-          ws = i + 1;
-        in [
-          "ALT, code:1${toString i}, workspace, ${toString ws}"
-          "ALT SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-        ]) 9);
+        numKeys = builtins.concatLists (
+          builtins.genList (
+            i: let
+              ws = i + 1;
+            in [
+              "ALT, code:1${toString i}, workspace, ${toString ws}"
+              "ALT SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ]
+          )
+          9
+        );
 
-        directionals = builtins.concatMap (delta: [
-          "ALT, ${delta}, movefocus, ${builtins.substring 0 1 delta}"
-          "ALT SHIFT, ${delta}, movewindow, ${builtins.substring 0 1 delta}"
-        ]) ["left" "right" "up" "down"];
-      in [
-        "SUPER, H, movefocus, l"
-        "SUPER, J, movefocus, d"
-        "SUPER, K, movefocus, u"
-        "SUPER, L, movefocus, r"
-        "SUPER SHIFT, H, movewindow, l"
-        "SUPER SHIFT, J, movewindow, d"
-        "SUPER SHIFT, K, movewindow, u"
-        "SUPER SHIFT, L, movewindow, r"
-        "SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"
-        "SUPER, W, exec, pkill -SIGUSR1 waybar"
-        ", Print, exec, hyprshot -m region --clipboard-only"
-        "ALT, TAB, cyclenext"
-        "ALT, TAB, bringactivetotop"
-        "ALT, T, togglefloating"
-        "ALT, F4, killactive"
-      ]
-      ++ numKeys
-      ++ directionals;
+        directionals =
+          builtins.concatMap
+          (delta: [
+            "ALT, ${delta}, movefocus, ${builtins.substring 0 1 delta}"
+            "ALT SHIFT, ${delta}, movewindow, ${builtins.substring 0 1 delta}"
+          ])
+          [
+            "left"
+            "right"
+            "up"
+            "down"
+          ];
+      in
+        [
+          "SUPER, H, movefocus, l"
+          "SUPER, J, movefocus, d"
+          "SUPER, K, movefocus, u"
+          "SUPER, L, movefocus, r"
+          "SUPER SHIFT, H, movewindow, l"
+          "SUPER SHIFT, J, movewindow, d"
+          "SUPER SHIFT, K, movewindow, u"
+          "SUPER SHIFT, L, movewindow, r"
+          "SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"
+          "SUPER, W, exec, pkill -SIGUSR1 waybar"
+          ", Print, exec, hyprshot -m region --clipboard-only"
+          "ALT, TAB, cyclenext"
+          "ALT, TAB, bringactivetotop"
+          "ALT, T, togglefloating"
+          "ALT, F4, killactive"
+        ]
+        ++ numKeys
+        ++ directionals;
 
       binde = [
         "ALT CTRL, left, resizeactive, -10 0"
