@@ -17,7 +17,7 @@
       shiftwidth = 2;
       swapfile = false;
       signcolumn = "yes:1";
-      number = true;
+      relativenumber = true;
       confirm = true;
       cursorline = true;
     };
