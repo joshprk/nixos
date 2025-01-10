@@ -103,11 +103,13 @@
         system = "x86_64-linux";
         stateVersion = "24.11";
         extraModules = with self.inputs; [
+          hardware.nixosModules.common-pc
           ./modules/impermanence.nix
-	  ./modules/nvidia.nix
-	  ./modules/hypr.nix
-	  ./modules/home.nix
-	];
+          ./modules/nvidia.nix
+          ./modules/hypr.nix
+          ./modules/home.nix
+          ./modules/flatpak.nix
+        ];
       };
 
       LT = mkSystem {
