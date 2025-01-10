@@ -9,7 +9,7 @@
       "$SNIP" = "";
       "$WEB" = "zen";
 
-      monitor = ", preferred, auto, 1";
+      monitor = ", highrr, auto, 1, bitdepth, 10";
 
       exec-once = [
         "hyprctl setcursor ${builtins.toString config.stylix.cursor.size}"
