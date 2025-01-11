@@ -47,7 +47,7 @@
         "$MOD, $MOD_L, exec, $LAUNCHER"
         "$MOD, Q, exec, $TERM"
         ", Print, exec, $SNIP"
-	"$MOD, W, exec, $WEB"
+        "$MOD, W, exec, $WEB"
         "$MOD, T, togglefloating"
         "$MOD, code:10, workspace, 1"
         "$MOD, code:11, workspace, 2"

@@ -37,6 +37,8 @@
     userName = "Joshua Park";
     extraConfig = {
       init.defaultBranch = "main";
+      merge.tool = "nvimdiff";
+      mergetool.nvimdiff = "LOCAL,BASE,REMOTE / MERGED";
     };
   };
 

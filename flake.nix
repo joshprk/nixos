@@ -87,7 +87,7 @@
         modules = with self.inputs; [
           impermanence.nixosModules.impermanence
           home-manager.nixosModules.home-manager
-	  lanzaboote.nixosModules.lanzaboote
+          lanzaboote.nixosModules.lanzaboote
           agenix.nixosModules.default
 
           ./hosts/${lib.strings.toLower hostName}.nix

@@ -1,4 +1,8 @@
-{config, lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   environment.persistence."/nix/persist" = {
     enable = true;
     hideMounts = true;
