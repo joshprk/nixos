@@ -105,6 +105,7 @@
         extraModules = with self.inputs; [
           hardware.nixosModules.common-pc
           ./modules/impermanence.nix
+          ./modules/secureboot.nix
           ./modules/nvidia.nix
           ./modules/hypr.nix
           ./modules/home.nix

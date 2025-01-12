@@ -63,6 +63,16 @@
     initExtra = ''
       autoload -U colors && colors
       export PS1="%B%{$fg[green]%}[%n@%m:%~]$%b%{$reset_color%} "
+
+      if [[ $1 == eval ]]
+      then
+        "$@"
+        set --
+      fi
+      
+      nix-develop() {
+        nix develop $1 -c $SHELL -ais eval "export SHELL=$SHELL"
+      }
     '';
     completionInit = ''
       autoload -U compinit
@@ -70,5 +80,17 @@
       zstyle ':completion:*' cache-path ${config.xdg.cacheHome}/zsh/zcompcache
       compinit -d ${config.xdg.cacheHome}/zsh/zcompdump
     '';
+    plugins = [
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.8.0";
+          sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+        };
+      }
+    ];
   };
 }

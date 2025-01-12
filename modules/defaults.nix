@@ -10,7 +10,7 @@
 
   networking.networkmanager.enable = lib.mkDefault true;
   networking.hostName = hostName;
-
+  time.timeZone = "America/New_York";
   system.stateVersion = stateVersion;
 
   nix.settings = {
@@ -18,7 +18,6 @@
       "nix-command"
       "flakes"
     ];
-
     trusted-users = [
       "root"
       "@wheel"
