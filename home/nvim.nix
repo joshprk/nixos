@@ -20,6 +20,7 @@
       relativenumber = true;
       confirm = true;
       cursorline = true;
+      wrap = false;
     };
 
     globals = {

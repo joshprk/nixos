@@ -19,6 +19,7 @@
         gaps_in = 5;
         gaps_out = 10;
         resize_on_border = true;
+        no_focus_fallback = true;
       };
 
       decoration = {
@@ -36,11 +37,15 @@
         };
       };
 
+      gestures = {
+        workspace_swipe = true;
+      };
+
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
-        vrr = 2;
         focus_on_activate = true;
+        vrr = 2;
       };
 
       bind = [
@@ -83,7 +88,7 @@
         "$MOD CTRL, H, resizeactive, -10 0"
         "$MOD CTRL, J, resizeactive, 0 10"
         "$MOD CTRL, K, resizeactive, 0 -10"
-        "$MOD CTRL, L, resizeactive, 10, 0"
+        "$MOD CTRL, L, resizeactive, 10 0"
       ];
 
       bindm = [
