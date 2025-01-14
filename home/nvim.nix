@@ -18,6 +18,7 @@
       swapfile = false;
       signcolumn = "yes:1";
       relativenumber = true;
+      number = true;
       confirm = true;
       cursorline = true;
       wrap = false;
