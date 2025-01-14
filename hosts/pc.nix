@@ -20,7 +20,7 @@
       /run/current-system/sw/bin/nvidia-smi --lock-memory-clocks=0,10501
     '';
   };
-  
+
   services.udev.extraRules = ''
     ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c094", ATTR{power/wakeup}="disabled"
     ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c547", ATTR{power/wakeup}="disabled"

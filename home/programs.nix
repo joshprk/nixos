@@ -79,7 +79,7 @@
         "$@"
         set --
       fi
-      
+
       nix-develop() {
         nix develop $1 -c $SHELL -ais eval "export SHELL=$SHELL"
       }
