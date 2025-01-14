@@ -11,11 +11,13 @@
       url = "https://w.wallhaven.cc/full/kx/wallhaven-kx9ql7.jpg";
       sha256 = "sha256-D0P9pTc5LVheYuhzTg1w9cUdK2TjsJf+tKn6Diwdxss=";
     };
+
     cursor = {
       name = "catppuccin-mocha-dark-cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
       size = 24;
     };
+
     fonts = {
       serif = config.stylix.fonts.monospace;
       sansSerif = config.stylix.fonts.monospace;
@@ -25,6 +27,7 @@
         name = "JetBrainsMono NerdFont";
       };
     };
+
     targets = {
       nixvim.enable = false;
     };
