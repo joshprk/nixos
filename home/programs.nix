@@ -84,7 +84,7 @@
         nix develop $1 -c $SHELL -ais eval "export SHELL=$SHELL"
       }
 
-      nix-direnv() {
+      nix-init() {
         if [ ! -e flake.nix ]; then
           nix flake new .
           $EDITOR flake.nix
