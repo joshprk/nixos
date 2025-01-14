@@ -53,7 +53,7 @@
       astal = self.packages.${system}.astal;
     });
 
-    zen-overlay = system: (fival: prev: {
+    zen-overlay = system: (final: prev: {
       zen-browser = self.inputs.zen-browser.packages.${system}.zen-browser;
     });
 
@@ -151,8 +151,12 @@
         entry = "app.ts";
         gtk4 = false;
         extraPackages = with ags.packages.${system}; [
+          apps
+          auth
           battery
+          hyprland
           notifd
+          tray
         ];
       };
     });

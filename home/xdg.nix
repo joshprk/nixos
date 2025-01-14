@@ -29,6 +29,10 @@
     ".themes/adw-gtk3".enable = false;
   };
 
+  home.sessionVariables = {
+    CARGO_HOME = "${config.xdg.dataHome}/cargo";
+  };
+
   gtk.gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
   xresources.path = "${config.xdg.configHome}/x11/resources";
 }

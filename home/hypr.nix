@@ -15,6 +15,10 @@
         "hyprctl setcursor ${builtins.toString config.stylix.cursor.size}"
       ];
 
+      layerrule = [
+        "blur, gtk-layer-shell"
+      ];
+
       general = {
         gaps_in = 5;
         gaps_out = 10;

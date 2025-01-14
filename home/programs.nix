@@ -7,10 +7,20 @@
     astal
     brightnessctl
     zen-browser
+    wl-clipboard-rs
   ];
 
   programs.btop = {
     enable = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+    config = {
+      global.hide_env_diff = true;
+    };
   };
 
   programs.fzf = {
@@ -72,6 +82,18 @@
       
       nix-develop() {
         nix develop $1 -c $SHELL -ais eval "export SHELL=$SHELL"
+      }
+
+      nix-direnv() {
+        if [ ! -e flake.nix ]; then
+          nix flake new .
+          $EDITOR flake.nix
+        fi
+        if [ ! -e .envrc ]; then
+          echo "use flake" > .envrc
+        fi
+        direnv allow
+        direnv reload
       }
     '';
     completionInit = ''
