@@ -12,6 +12,7 @@
       monitor = ", highrr, auto, 1, bitdepth, 10";
 
       exec-once = [
+        "astal"
         "hyprctl setcursor ${builtins.toString config.stylix.cursor.size}"
       ];
 

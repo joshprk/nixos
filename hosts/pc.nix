@@ -5,6 +5,9 @@
     consoleLogLevel = 3;
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
+      "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+      "nvidia.NVreg_EnableGpuFirmware=0"
+      "nvidia.NVreg_UsePageAttributeTable=1"
       "quiet"
       "splash"
     ];

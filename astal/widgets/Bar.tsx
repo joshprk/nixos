@@ -19,10 +19,11 @@ export default function Bar(monitor: Gdk.Monitor) {
     gdkmonitor={monitor}
     exclusivity={Astal.Exclusivity.EXCLUSIVE}
     anchor={TOP | LEFT | RIGHT}
-    css={"background: rgba(30, 30, 46, 0.9);"}>
+    css={"background: rgba(24, 24, 37, 0.9);"}>
     <centerbox
       css={"padding: 5px; font-size: 14px; margin-left: 5px; margin-right: 5px;"}>
-      <box hexpand halign={Gtk.Align.START}> </box>
+      <box hexpand halign={Gtk.Align.START}>
+      </box>
       <box>
       </box>
       <box hexpand halign={Gtk.Align.END}>
