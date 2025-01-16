@@ -1,4 +1,4 @@
-# Joshua's NixOS
+# joshprk's nixos
 
 This system configuration is a result of months of learning and trying with many
 well though-out design choices along the way. It is designed for a single-user
@@ -21,4 +21,4 @@ desktop computer. It has the following features:
 - Astal-based desktop shell
 - Completely pure and stateless
 
-If you have any questions, feel free to contact me at `joshprk` on Discord.
+If you have any questions, feel free to contact me at joshprk on Discord.
