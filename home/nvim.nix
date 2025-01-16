@@ -81,16 +81,6 @@
         ];
       }
       {
-        action = "<Cmd>lua vim.diagnostic.open_float()<CR>";
-        key = "<leader>e";
-        options.desc = "Open diagnostic float";
-        mode = [
-          "n"
-          "x"
-          "o"
-        ];
-      }
-      {
         action = "<Cmd>tabnew<CR>";
         key = "<leader>t";
         options.desc = "New tab";
