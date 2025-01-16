@@ -86,6 +86,7 @@
         "$MOD SHIFT, L, movewindow, r"
         "$MOD, TAB, cyclenext"
         "$MOD, TAB, bringactivetotop"
+        "$MOD, F, fullscreen"
       ];
 
       binde = [
