@@ -120,26 +120,6 @@
           "o"
         ];
       }
-      {
-        action = "<Cmd>vsplit<CR>";
-        key = "<leader>v";
-        options.desc = "Vertical split";
-        mode = [
-          "n"
-          "x"
-          "o"
-        ];
-      }
-      {
-        action = "<Cmd>split<CR>";
-        key = "<leader>V";
-        options.desc = "Horizontal split";
-        mode = [
-          "n"
-          "x"
-          "o"
-        ];
-      }
     ];
 
     colorschemes.catppuccin = {
