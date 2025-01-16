@@ -11,6 +11,7 @@
 
   services.xserver = {
     enable = true;
+    displayManager.lightdm.enable = false;
   };
 
   services.pipewire = {
