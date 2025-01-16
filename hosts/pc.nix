@@ -5,7 +5,6 @@
     consoleLogLevel = 3;
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-      "NVreg_UsePageAttributeTable=1"
       "quiet"
       "splash"
     ];
@@ -13,18 +12,13 @@
 
   hardware.nvidia.nvidiaPersistenced = true;
   systemd.services.nvidia-underclock = {
-    description = "Limits NVIDIA GPU clocks to 1900MHz and overclocks memory by +1000MHz";
+    description = "Limits NVIDIA GPU clocks to 1905MHz and overclocks memory by +500MHz";
     wantedBy = ["multi-user.target"];
     script = ''
-      /run/current-system/sw/bin/nvidia-smi --lock-gpu-clocks 0,1090
-      /run/current-system/sw/bin/nvidia-smi --lock-memory-clocks=0,10501
+      /run/current-system/sw/bin/nvidia-smi --lock-gpu-clocks 0,1905
+      /run/current-system/sw/bin/nvidia-smi --lock-memory-clocks=0,10001
     '';
   };
-
-  services.udev.extraRules = ''
-    ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c094", ATTR{power/wakeup}="disabled"
-    ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c547", ATTR{power/wakeup}="disabled"
-  '';
 
   powerManagement = {
     enable = true;
