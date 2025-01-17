@@ -23,6 +23,8 @@
       cursorline = true;
       wrap = false;
       laststatus = 3;
+      splitright = true;
+      splitbelow = true;
     };
 
     globals = {

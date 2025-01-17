@@ -50,6 +50,7 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         focus_on_activate = true;
+        initial_workspace_tracking = 2;
         vrr = 2;
       };
 

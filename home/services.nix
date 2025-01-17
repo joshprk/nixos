@@ -4,8 +4,9 @@
     settings = {
       listener = [
         {
-          timeout = 480;
-          on-timeout = "systemctl suspend";
+          timeout = 300;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
         }
       ];
     };
