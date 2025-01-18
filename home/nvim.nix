@@ -29,6 +29,9 @@
 
     globals = {
       mapleader = " ";
+      loaded_netrw = 1;
+      loaded_netrwPlugin = 1;
+      loaded_tutor_mode_plugin = 1;
     };
 
     keymaps = [
