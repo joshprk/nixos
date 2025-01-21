@@ -149,6 +149,7 @@
       servers = {
         ccls.enable = true;
         pyright.enable = true;
+        ts_ls.enable = true;
         nixd.enable = true;
       };
     };
@@ -178,6 +179,7 @@
       settings = {
         indent = {
           enabled = true;
+          char = "¦";
           blank = {
             char = "-";
           };

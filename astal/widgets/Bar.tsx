@@ -1,16 +1,5 @@
-import { Variable, GLib } from "astal"
-import { Astal, Gtk, Gdk } from "astal/gtk3"
-
-function Time({ format = "%I:%M %p" }) {
-  const time = Variable<string>("").poll(1000, () =>
-    GLib.DateTime.new_now_local().format(format)!)
-
-  return <label
-    className="Time"
-    onDestroy={() => time.drop()}
-    label={time()}
-  />
-}
+import { Variable, GLib, bind } from "astal"
+import { Astal, Gtk, Gdk } from "astal/gtk4"
 
 export default function Bar(monitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
@@ -27,7 +16,6 @@ export default function Bar(monitor: Gdk.Monitor) {
       <box>
       </box>
       <box hexpand halign={Gtk.Align.END}>
-        <Time />
       </box>
     </centerbox>
   </window>

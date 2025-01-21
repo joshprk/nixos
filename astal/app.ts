@@ -1,4 +1,4 @@
-import { App } from "astal/gtk3"
+import { App } from "astal/gtk4"
 import Bar from "./widgets/Bar.tsx"
 
 function onRequest(request: string, res: (response: any) => void) {
