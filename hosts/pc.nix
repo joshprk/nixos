@@ -3,7 +3,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     consoleLogLevel = 3;
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_12;
     kernelParams = [
       "nvidia.NVreg_TemporaryFilePath=/var/tmp"
       "nvidia.NVreg_EnableGpuFirmware=0"

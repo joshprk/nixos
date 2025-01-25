@@ -160,11 +160,6 @@
 
     plugins.mini = {
       enable = true;
-      mockDevIcons = true;
-      modules = {
-        pairs = {};
-        icons = {};
-      };
     };
 
     plugins.noice = {
@@ -180,9 +175,6 @@
         indent = {
           enabled = true;
           char = "¦";
-          blank = {
-            char = "-";
-          };
         };
         input = {
           enabled = true;

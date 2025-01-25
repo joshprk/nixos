@@ -110,6 +110,8 @@
           ./modules/hypr.nix
           ./modules/home.nix
           ./modules/flatpak.nix
+          ./modules/sshd.nix
+          ./modules/sunshine.nix
         ];
       };
 
