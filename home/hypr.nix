@@ -53,6 +53,15 @@
         vrr = 2;
       };
 
+      ecosystem = {
+        no_donation_nag = true;
+      };
+
+      experimental = {
+        wide_color_gamut = true;
+        xx_color_management_v4 = true;
+      };
+
       bind = [
         "$MOD, $MOD_L, exec, $LAUNCHER"
         "$MOD, Q, exec, $TERM"
