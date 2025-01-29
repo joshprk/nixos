@@ -65,11 +65,6 @@
     enableCompletion = true;
     dotDir = ".config/zsh";
     history.path = "${config.xdg.dataHome}/zsh/zsh_history";
-    initExtraFirst = ''
-      if uwsm check may-start && uwsm select; then
-        exec systemd-cat -t uwsm_start uwsm start default
-      fi
-    '';
     initExtra = ''
       autoload -U colors && colors
       export PS1="%B%{$fg[green]%}[%n@%m:%~]$%b%{$reset_color%} "
