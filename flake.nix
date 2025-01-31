@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=master";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
 
@@ -126,6 +126,7 @@
           ./modules/nvidia.nix
           ./modules/hypr.nix
           ./modules/home.nix
+          ./modules/tailscale.nix
         ];
       };
     };

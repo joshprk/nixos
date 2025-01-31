@@ -33,6 +33,7 @@
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
     ERRFILE = "${config.xdg.cacheHome}/x11/xsession-errors";
     XCOMPOSECACHE = "${config.xdg.cacheHome}/x11/xcompose";
+    IPYTHONDIR = "${config.xdg.configHome}/ipython";
   };
 
   gtk.gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";

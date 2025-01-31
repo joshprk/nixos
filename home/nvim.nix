@@ -36,6 +36,13 @@
 
     keymaps = [
       {
+        action = "<C-\\><C-n>";
+        key = "<Esc>";
+        mode = [
+          "t"
+        ];
+      }
+      {
         action = "<Cmd>lua require(\"flash\").jump()<CR>";
         key = "s";
         options.desc = "Flash";
@@ -117,6 +124,18 @@
       }
     ];
 
+    autoCmd = [
+      {
+        command = "setlocal nonumber norelativenumber";
+        event = [
+          "TermOpen"
+        ];
+        pattern = [
+          "*"
+        ];
+      }
+    ];
+
     colorschemes.catppuccin = {
       enable = true;
       settings = {
@@ -174,7 +193,7 @@
       settings = {
         indent = {
           enabled = true;
-          char = "¦";
+          char = "|";
         };
         input = {
           enabled = true;
