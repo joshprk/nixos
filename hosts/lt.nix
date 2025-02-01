@@ -23,5 +23,9 @@
     };
   };
 
+  powerManagement = {
+    enable = true;
+  };
+
   zramSwap.enable = true;
 }
