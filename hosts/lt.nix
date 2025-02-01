@@ -1,13 +1,20 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     consoleLogLevel = 3;
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_12;
     kernelParams = [
       "amdgpu.dcdebugmask=0x10"
       "quiet"
       "splash"
+    ];
+    extraModulePackages = with config.boot.kernelPackages; [
+      lenovo-legion-module
     ];
   };
 
