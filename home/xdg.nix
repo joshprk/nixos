@@ -5,6 +5,7 @@
 }: {
   xdg = {
     enable = true;
+    /*
     portal = rec {
       enable = true;
       configPackages = extraPortals;
@@ -18,6 +19,7 @@
         "gtk"
       ];
     };
+    */
     mime.enable = true;
     mimeApps.enable = true;
     userDirs.createDirectories = false;
