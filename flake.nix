@@ -106,11 +106,13 @@
           hardware.nixosModules.common-pc
           ./modules/impermanence.nix
           ./modules/secureboot.nix
+          ./modules/networking.nix
           ./modules/nvidia.nix
+
           ./modules/hypr.nix
           ./modules/home.nix
-          ./modules/networking.nix
-          ./modules/flatpak.nix
+          ./modules/gaming.nix
+
           ./modules/sshd.nix
           ./modules/sunshine.nix
         ];
@@ -124,12 +126,14 @@
           hardware.nixosModules.lenovo-ideapad-16ahp9
           ./modules/impermanence.nix
           ./modules/secureboot.nix
+          ./modules/networking.nix
           ./modules/nvidia.nix
+
           ./modules/hypr.nix
           ./modules/home.nix
-          ./modules/networking.nix
-          ./modules/tailscale.nix
           ./modules/gaming.nix
+
+          ./modules/tailscale.nix
         ];
       };
     };
