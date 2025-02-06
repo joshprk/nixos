@@ -23,6 +23,8 @@
     '';
   };
 
+  services.blueman.enable = true;
+
   powerManagement = {
     enable = true;
   };
