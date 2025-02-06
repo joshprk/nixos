@@ -154,9 +154,6 @@
 
     plugins.flash = {
       enable = true;
-      settings = {
-        modes.search.enabled = true;
-      };
     };
 
     plugins.fzf-lua = {
@@ -199,7 +196,6 @@
       settings = {
         indent = {
           enabled = true;
-          char = "|";
         };
         input = {
           enabled = true;
