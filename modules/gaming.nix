@@ -17,6 +17,7 @@
     mainProgram = lib.getExe package;
     extraBwrapArgs = [
       "--bind $XDG_DATA_HOME/gaming $HOME"
+      "--chdir $HOME"
       "--dir $HOME"
       "--dir XDG_CACHE_HOME"
       "--dir XDG_CONFIG_HOME"
