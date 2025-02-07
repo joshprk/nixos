@@ -7,6 +7,7 @@
       "/etc/nixos"
       "/var/log"
       "/var/lib/nixos"
+      "/var/lib/bluetooth"
     ];
     files = [
       "/etc/machine-id"

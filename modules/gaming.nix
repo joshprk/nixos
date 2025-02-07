@@ -1,25 +1,51 @@
-{pkgs, ...}: let
-  dir = "$HOME/.local/share/gaming";
-  extraBwrapArgs = [
-    "--bind ${dir} $HOME"
-    "--unsetenv XDG_CACHE_HOME"
-    "--unsetenv XDG_CONFIG_HOME"
-    "--unsetenv XDG_DATA_HOME"
-    "--unsetenv XDG_STATE_HOME"
-  ];
+{
+  lib,
+  pkgs,
+  ...
+}: let
+  mkSandbox = {
+    name,
+    package,
+    ...
+  }: pkgs.buildFHSEnv {
+    inherit (package) passthru;
+    inherit name;
+
+    targetPkgs = _: [package];
+    
+    runScript = name;
+    mainProgram = lib.getExe package;
+    extraBwrapArgs = [
+      "--bind $XDG_DATA_HOME/gaming $HOME"
+      "--dir $HOME"
+      "--dir XDG_CACHE_HOME"
+      "--dir XDG_CONFIG_HOME"
+      "--dir XDG_DATA_HOME"
+      "--dir XDG_STATE_HOME"
+      "--die-with-parent"
+    ];
+  };
+
+  mkOverridableSandbox = lib.makeOverridable mkSandbox;
 in {
   environment.systemPackages = with pkgs; [
-    (lutris.override {
-      buildFHSEnv = prev: buildFHSEnv ({
-        inherit extraBwrapArgs;
-      } // prev);
+    (mkSandbox {
+      name = "lutris";
+      package = lutris;
+    })
+
+    (mkSandbox {
+      name = "protonup";
+      package = protonup;
     })
   ];
 
   programs.steam = {
     enable = true;
-    package = pkgs.steam.override {
-      inherit extraBwrapArgs;
+    package = mkOverridableSandbox {
+      name = "steam";
+      package = pkgs.steam;
     };
   };
 }
+

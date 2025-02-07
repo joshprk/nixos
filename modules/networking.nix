@@ -1,7 +1,7 @@
 {...}: {
   networking.networkmanager = {
     enable = true;
-    wifi.powersave = true;
+    wifi.powersave = false;
     ensureProfiles.profiles = {
       RUWireless = {
         connection = {

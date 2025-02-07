@@ -108,6 +108,7 @@
           ./modules/secureboot.nix
           ./modules/networking.nix
           ./modules/nvidia.nix
+          ./modules/bluetooth.nix
 
           ./modules/hypr.nix
           ./modules/home.nix

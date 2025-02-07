@@ -13,7 +13,10 @@
     ];
   };
 
-  hardware.nvidia.nvidiaPersistenced = true;
+  hardware = {
+    nvidia.nvidiaPersistenced = true;
+  };
+
   systemd.services.nvidia-underclock = {
     description = "Limits NVIDIA GPU clocks to 1700MHz and overclocks memory by +500MHz";
     wantedBy = ["multi-user.target"];
@@ -22,8 +25,6 @@
       /run/current-system/sw/bin/nvidia-smi --lock-memory-clocks=0,10001
     '';
   };
-
-  services.blueman.enable = true;
 
   powerManagement = {
     enable = true;
