@@ -5,9 +5,10 @@
 }: {
   home.packages = with pkgs; [
     brightnessctl
-    nautilus
     zen-browser
     wl-clipboard-rs
+
+    nautilus
   ];
 
   programs.btop = {

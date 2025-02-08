@@ -1,25 +1,9 @@
 {
   config,
-  pkgs,
   ...
 }: {
   xdg = {
     enable = true;
-    /*
-    portal = rec {
-      enable = true;
-      configPackages = extraPortals;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-hyprland
-        pkgs.xdg-desktop-portal-gtk
-      ];
-
-      config.hyprland.default = [
-        "hyprland"
-        "gtk"
-      ];
-    };
-    */
     mime.enable = true;
     mimeApps.enable = true;
     userDirs.createDirectories = false;
@@ -36,6 +20,9 @@
     ERRFILE = "${config.xdg.cacheHome}/x11/xsession-errors";
     XCOMPOSECACHE = "${config.xdg.cacheHome}/x11/xcompose";
     IPYTHONDIR = "${config.xdg.configHome}/ipython";
+
+    BROWSER = "zen";
+    TERMINAL = "ghostty";
   };
 
   gtk.gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";

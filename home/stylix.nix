@@ -19,9 +19,14 @@
     };
 
     fonts = {
-      serif = config.stylix.fonts.monospace;
-      sansSerif = config.stylix.fonts.monospace;
-      emoji = config.stylix.fonts.monospace;
+      serif = {
+        package = pkgs.inter;
+        name = "Inter";
+      };
+
+      sansSerif = config.stylix.fonts.serif; 
+      emoji = config.stylix.fonts.serif;
+
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono NerdFont";
@@ -30,9 +35,9 @@
 
     iconTheme = {
       enable = true;
-      package = pkgs.candy-icons;
-      dark = "candy-icons";
-      light = "candy-icons";
+      package = pkgs.fluent-icon-theme;
+      dark = "Fluent-dark";
+      light = "Fluent-light";
     };
 
     targets = {
