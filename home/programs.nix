@@ -5,10 +5,11 @@
 }: {
   home.packages = with pkgs; [
     brightnessctl
+    hyprshot
+    swappy
+    nautilus
     zen-browser
     wl-clipboard-rs
-
-    nautilus
   ];
 
   programs.btop = {
@@ -59,8 +60,7 @@
   programs.mpv = {
     enable = true;
     config = {
-      vo = "kitty";
-      vo-kitty-use-shm = "yes";
+      keep-open = "yes";
     };
   };
 

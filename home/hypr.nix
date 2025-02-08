@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   ...
 }: {
   wayland.windowManager.hyprland = {
@@ -9,7 +8,7 @@
       "$MOD" = "SUPER";
       "$LAUNCHER" = "";
       "$TERM" = "ghostty";
-      "$SNIP" = "";
+      "$SNIP" = "exec, hyprshot --freeze --mode=region --raw --clipboard-only | swappy -f -";
       "$WEB" = "zen";
 
       monitor = ", highrr, auto, 1, bitdepth, 10";

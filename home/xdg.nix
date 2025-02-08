@@ -5,8 +5,17 @@
   xdg = {
     enable = true;
     mime.enable = true;
-    mimeApps.enable = true;
     userDirs.createDirectories = false;
+
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = ["zen.desktop"];
+        "application/octet-stream" = ["nvim.desktop"];
+        "application/x-zerosize" = ["nvim.desktop"];
+        "text/plain" = ["nvim.desktop"];
+      };
+    };
   };
 
   home.file = {
