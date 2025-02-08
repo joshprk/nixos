@@ -19,11 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags = {
-      url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,10 +44,6 @@
     forAllSystems = lib.genAttrs lib.systems.flakeExposed;
     getPkgs = system: import nixpkgs {inherit system;};
 
-    astal-overlay = system: (final: prev: {
-      astal = self.packages.${system}.astal;
-    });
-
     zen-overlay = system: (final: prev: {
       zen-browser = self.inputs.zen-browser.packages.${system}.zen-browser;
     });
@@ -68,7 +59,6 @@
         stylix.homeManagerModules.stylix
       ];
       overlays = [
-        (astal-overlay system)
         (zen-overlay system)
       ];
     in
@@ -147,27 +137,6 @@
         buildInputs = with pkgs; [
           agenix.packages.${system}.agenix
           sbctl
-        ];
-      };
-    });
-
-    packages = forAllSystems (system: let
-      ags = self.inputs.ags;
-      pkgs = getPkgs system;
-    in {
-      astal = ags.lib.bundle {
-        inherit pkgs;
-        src = ./astal;
-        name = "astal";
-        entry = "app.ts";
-        gtk4 = false;
-        extraPackages = with ags.packages.${system}; [
-          apps
-          auth
-          battery
-          hyprland
-          notifd
-          tray
         ];
       };
     });

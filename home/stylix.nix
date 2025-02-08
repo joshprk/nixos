@@ -28,6 +28,13 @@
       };
     };
 
+    iconTheme = {
+      enable = true;
+      package = pkgs.candy-icons;
+      dark = "candy-icons";
+      light = "candy-icons";
+    };
+
     targets = {
       nixvim.enable = false;
     };

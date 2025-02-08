@@ -4,8 +4,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    astal
     brightnessctl
+    nautilus
     zen-browser
     wl-clipboard-rs
   ];
