@@ -35,9 +35,9 @@
 
     iconTheme = {
       enable = true;
-      package = pkgs.fluent-icon-theme;
-      dark = "Fluent-dark";
-      light = "Fluent-light";
+      package = pkgs.candy-icons;
+      dark = "candy-icons";
+      light = "candy-icons";
     };
 
     targets = {
