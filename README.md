@@ -15,10 +15,9 @@ desktop computer. It has the following features:
 - Neovim through Nixvim configuration
 - Hyprland configuration with Vim motions
 - Cached, automatic development shells using nix-direnv
-- Flatpak-based support for gaming software
+- Gaming sandbox for file isolation and security
 - Remote access using Tailscale, SSH, and Moonlight streaming
 - Declared nmcli networking through Nix options
-- Astal-based desktop shell
 - Completely pure and stateless
 
 If you have any questions, feel free to contact me at joshprk on Discord.
