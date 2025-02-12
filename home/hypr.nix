@@ -1,14 +1,11 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       "$MOD" = "SUPER";
       "$LAUNCHER" = "";
       "$TERM" = "ghostty";
-      "$SNIP" = "exec, hyprshot --freeze --mode=region --raw --clipboard-only | swappy -f -";
+      "$SNIP" = "pgrep hyprshot && exit 0 || hyprshot --freeze --mode=region --raw --clipboard-only | swappy -f -";
       "$WEB" = "zen";
 
       monitor = ", highrr, auto, 1, bitdepth, 10";
@@ -20,6 +17,7 @@
 
       layerrule = [
         "blur, gtk-layer-shell"
+        "noanim, selection"
       ];
 
       general = {
