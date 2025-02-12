@@ -8,6 +8,18 @@
     enable = true;
   };
 
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "Hyprland";
+        user = "joshua";
+      };
+
+      default_session = initial_session;
+    };
+  };
+
   services.xserver = {
     enable = true;
     excludePackages = [
@@ -21,6 +33,10 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+  };
+
+  security.rtkit = {
+    enable = true;
   };
 
   xdg.autostart.enable = true;

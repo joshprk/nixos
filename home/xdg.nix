@@ -1,11 +1,23 @@
 {
   config,
+  pkgs,
   ...
 }: {
   xdg = {
     enable = true;
     mime.enable = true;
     userDirs.createDirectories = false;
+    portal = rec {
+      enable = true;
+      xdgOpenUsePortal = true;
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
+      ];
+
+      configPackages = extraPortals;
+    };
 
     mimeApps = {
       enable = true;
