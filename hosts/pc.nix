@@ -26,6 +26,10 @@
     '';
   };
 
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", GROUP="wheel", MODE="0660"
+  '';
+
   powerManagement = {
     enable = true;
   };
