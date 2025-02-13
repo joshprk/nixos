@@ -5,7 +5,8 @@
       listener = [
         {
           timeout = 300;
-          on-timeout = "systemctl suspend";
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
         }
       ];
     };
