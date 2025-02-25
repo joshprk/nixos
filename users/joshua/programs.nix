@@ -41,7 +41,6 @@ in {
       settings = {
         window-decoration = false;
         gtk-single-instance = true;
-        theme = "catppuccin-mocha";
       };
     };
 
