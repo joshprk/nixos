@@ -36,6 +36,10 @@ in {
         enable = true;
       };
 
+      settings.networking = {
+        enable = true;
+      };
+
       settings.secrets = {
         enable = lib.mkForce true;
       };
