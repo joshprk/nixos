@@ -27,6 +27,10 @@ in {
         ];
         "$WEB" = "zen";
 
+        exec-once = [
+          "hyprctl setcursor ${builtins.toString config.stylix.cursor.size}"
+        ];
+
         monitor = ", highrr, auto, 1, bitdepth, 10";
 
         layerrule = [
