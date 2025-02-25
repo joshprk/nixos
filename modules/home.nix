@@ -53,6 +53,9 @@ in {
           builtins.listToAttrs entries;
       };
 
+      # TODO: make automatic
+      programs.zsh.enable = true;
+
       users = {
         inherit (cfg) users;
         mutableUsers = false;
@@ -61,14 +64,5 @@ in {
       nix.settings = {
         use-xdg-base-directories = true;
       };
-
-      /*
-      xdg.terminal-exec = {
-        enable = true;
-        settings = {
-          default = ["com.mitchellh.ghostty"];
-        };
-      };
-      */
     };
 }

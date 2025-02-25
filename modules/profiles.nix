@@ -44,11 +44,6 @@ in {
         quiet = true;
       };
 
-      # TODO: automatic shell
-      programs.zsh = {
-        enable = true;
-      };
-
       powerManagement = {
         enable = true;
       };
