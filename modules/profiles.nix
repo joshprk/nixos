@@ -25,7 +25,9 @@ in {
               [
                 "wheel"
               ]
-              ++ (lib.optional config.settings.networking.enable "networkmanager");
+              ++ (lib.optional
+                config.settings.networking.enable
+                "networkmanager");
           };
         };
       };
