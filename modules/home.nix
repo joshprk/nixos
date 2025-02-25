@@ -30,45 +30,45 @@ in {
   };
 
   config = let
+  in
+    lib.mkIf cfg.enable {
+      home-manager = {
+        useUserPackages = true;
+        useGlobalPkgs = true;
+        sharedModules = homeManagerModules;
 
-  in lib.mkIf cfg.enable {
-    home-manager = {
-      useUserPackages = true;
-      useGlobalPkgs = true;
-      sharedModules = homeManagerModules;
+        extraSpecialArgs = {};
 
-      extraSpecialArgs = {};
-
-      users = let
-        getDir = dir: builtins.toPath "${cfg.directory}/${dir}";
-        mkEntry = user: {
-          name = user;
-          value = import (getDir user);
-        };
-        names = builtins.attrNames cfg.users;
-        filtered =
-          builtins.filter (name: builtins.pathExists (getDir name)) names;
-        entries = map mkEntry filtered;
-      in
-        builtins.listToAttrs entries;
-    };
-
-    users = {
-      inherit (cfg) users;
-      mutableUsers = false;
-    };
-
-    nix.settings = {
-      use-xdg-base-directories = true;
-    };
-
-    /*
-    xdg.terminal-exec = {
-      enable = true;
-      settings = {
-        default = ["com.mitchellh.ghostty"];
+        users = let
+          getDir = dir: builtins.toPath "${cfg.directory}/${dir}";
+          mkEntry = user: {
+            name = user;
+            value = import (getDir user);
+          };
+          names = builtins.attrNames cfg.users;
+          filtered =
+            builtins.filter (name: builtins.pathExists (getDir name)) names;
+          entries = map mkEntry filtered;
+        in
+          builtins.listToAttrs entries;
       };
+
+      users = {
+        inherit (cfg) users;
+        mutableUsers = false;
+      };
+
+      nix.settings = {
+        use-xdg-base-directories = true;
+      };
+
+      /*
+      xdg.terminal-exec = {
+        enable = true;
+        settings = {
+          default = ["com.mitchellh.ghostty"];
+        };
+      };
+      */
     };
-    */
-  };
 }

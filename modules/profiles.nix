@@ -21,10 +21,11 @@ in {
             isNormalUser = true;
             hashedPasswordFile = config.sops.secrets."users/joshua".path;
             shell = pkgs.zsh;
-            extraGroups = [
-              "wheel"
-              "networkmanager"
-            ];
+            extraGroups =
+              [
+                "wheel"
+              ]
+              ++ (lib.optional config.settings.networking.enable "networkmanager");
           };
         };
       };
@@ -45,9 +46,6 @@ in {
       programs.zsh = {
         enable = true;
       };
-
-      # TODO: Move to networking module
-      networking.networkmanager.enable = true;
 
       powerManagement = {
         enable = true;
