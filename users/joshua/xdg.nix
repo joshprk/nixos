@@ -38,12 +38,6 @@
       };
     };
 
-    /*home.file = {
-      ".icons/default/index.theme".enable = false;
-      ".icons/${config.home.pointerCursor.name}".enable = false;
-      ".themes/adw-gtk3".enable = false;
-    };*/
-
     home.sessionVariables = {
       CARGO_HOME = "${config.xdg.dataHome}/cargo";
       ERRFILE = "${config.xdg.cacheHome}/x11/xsession-errors";
