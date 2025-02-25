@@ -6,6 +6,7 @@
     ./hypr.nix
     ./nvim.nix
     ./programs.nix
+    ./stylix.nix
     ./xdg.nix
   ];
 
@@ -17,6 +18,7 @@
     hypr.enable = true;
     nvim.enable = true;
     programs.enable = true;
+    stylix.enable = true;
     xdg.enable = true;
   };
 }
