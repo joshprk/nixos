@@ -31,6 +31,10 @@ in {
       };
     };
 
+    programs.fzf = {
+      enable = true;
+    };
+
     programs.ghostty = {
       enable = true;
       enableZshIntegration = true;
@@ -50,6 +54,10 @@ in {
         merge.tool = "nvimdiff";
         mergetool.nvimdiff = "LOCAL,BASE,REMOTE / MERGED";
       };
+    };
+
+    programs.ripgrep = {
+      enable = true;
     };
 
     programs.zsh = {
