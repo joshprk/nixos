@@ -51,10 +51,7 @@ in {
       };
 
       targets = {
-        nixvim = {
-          transparentBackground.main = true;
-          transparentBackground.signColumn = true;
-        };
+        nixvim.enable = false;
       };
     };
 

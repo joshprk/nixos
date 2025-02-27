@@ -17,6 +17,7 @@ in {
       hyprshot
       swappy
       zen-browser
+      wl-clipboard-rs
     ];
 
     programs.direnv = {
