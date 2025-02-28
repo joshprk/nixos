@@ -130,5 +130,18 @@ in {
         ];
       };
     };
+
+    services.hypridle = {
+      enable = true;
+      settings = {
+        listener = [
+          {
+            timeout = 500;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+        ];
+      };
+    };
   };
 }
