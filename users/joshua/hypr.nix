@@ -31,7 +31,7 @@ in {
           "hyprctl setcursor ${builtins.toString config.stylix.cursor.size}"
         ];
 
-        monitor = ", highrr, auto, 1, bitdepth, 10";
+        monitor = ", highrr, auto, 1";
 
         layerrule = [
           "blur, gtk-layer-shell"
