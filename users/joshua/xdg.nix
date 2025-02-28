@@ -15,16 +15,16 @@
       enable = true;
       mime.enable = true;
       userDirs.createDirectories = false;
-      portal = rec {
+      portal = {
         enable = true;
         xdgOpenUsePortal = true;
 
-        extraPortals = with pkgs; [
+        configPackages = with pkgs; [
           xdg-desktop-portal-hyprland
           xdg-desktop-portal-gtk
         ];
 
-        configPackages = extraPortals;
+        extraPortals = config.xdg.portal.configPackages;
       };
 
       mimeApps = {
