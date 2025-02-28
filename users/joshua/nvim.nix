@@ -25,9 +25,17 @@ in {
         cursorline = true;
         number = true;
         relativenumber = true;
-        signcolumn = "yes:1";
+        signcolumn = "number";
 
         laststatus = 3;
+      };
+
+      highlight = {
+        DiagnosticUnderlineError.undercurl = true;
+        DiagnosticUnderlineHint.undercurl = true;
+        DiagnosticUnderlineInfo.undercurl = true;
+        DiagnosticUnderlineOk.undercurl = true;
+        DiagnosticUnderlineWarn.undercurl = true;
       };
 
       colorschemes = {
@@ -36,6 +44,7 @@ in {
           settings = {
             no_italic = true;
             transparent_background = true;
+            custom_highlights = config.programs.nixvim.highlight;
           };
         };
       };
@@ -47,9 +56,17 @@ in {
         };
       };
 
+      plugins.fzf-lua = {
+        enable = true;
+      };
+
       plugins.lsp = {
         enable = true;
         servers = {
+          nil_ls = {
+            enable = true;
+          };
+
           pyright = {
             enable = true;
           };
@@ -67,11 +84,36 @@ in {
         enable = true;
       };
 
+      plugins.mini = {
+        enable = true;
+        mockDevIcons = true;
+        modules = {
+          icons = {};
+        };
+
+        luaConfig.post = ''
+          local signs = {
+            DiagnosticSignError = { text = "󰅙", },
+            DiagnosticSignWarn = { text = "", },
+            DiagnosticSignHint = { text = "", },
+            DiagnosticSignInfo = { text = "", },
+          }
+
+          for i, v in pairs(signs) do
+            vim.fn.sign_define(i, v)
+          end
+        '';
+      };
+
       plugins.noice = {
         enable = true;
         settings = {
           presets.command_palette = true;
         };
+      };
+
+      plugins.treesitter = {
+        enable = true;
       };
     };
   };
