@@ -55,8 +55,8 @@ in {
 
     services.xserver = {
       enable = true;
-      desktopManager.xterm.enable = lib.mkDefault false;
-      displayManager.lightdm.enable = lib.mkDefault false;
+      desktopManager.xterm.enable = false;
+      displayManager.lightdm.enable = false;
     };
 
     security.rtkit = {
