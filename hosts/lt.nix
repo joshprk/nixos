@@ -1,6 +1,7 @@
 {...}: {
   settings = {
     profiles.desktop = true;
+    games.enable = true;
 
     impermanence.enable = true;
     secureboot.enable = true;
