@@ -65,6 +65,7 @@ in {
       enableCompletion = true;
       dotDir = ".config/zsh";
       history.path = "${config.xdg.dataHome}/zsh/zsh_history";
+
       initExtra = ''
         autoload -U colors && colors
         export PS1="%B%{$fg[green]%}[%n@%m:%~]$%b%{$reset_color%} "
@@ -91,12 +92,14 @@ in {
           direnv reload
         }
       '';
+
       completionInit = ''
         autoload -U compinit
         [ -d ${config.xdg.cacheHome}/zsh ] || mkdir -p ${config.xdg.cacheHome}/zsh
         zstyle ':completion:*' cache-path ${config.xdg.cacheHome}/zsh/zcompcache
         compinit -d ${config.xdg.cacheHome}/zsh/zcompdump
       '';
+
       plugins = [
         {
           name = "zsh-nix-shell";
