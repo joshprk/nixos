@@ -22,12 +22,12 @@ in {
             hashedPasswordFile = config.sops.secrets."users/joshua".path;
             shell = pkgs.zsh;
             extraGroups =
-              [
-                "wheel"
-              ]
-              ++ (lib.optional
+              ["wheel"]
+              ++ (
+                lib.optional
                 config.settings.networking.enable
-                "networkmanager");
+                "networkmanager"
+              );
           };
         };
       };
