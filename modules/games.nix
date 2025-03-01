@@ -41,7 +41,7 @@ in {
       dieWithParent = true;
 
       extraBwrapArgs = [
-        "--bind $XDG_DATA_HOME/gaming $HOME"
+        "--bind $XDG_DATA_HOME/games $HOME"
         "--chdir $HOME"
         "--dir $HOME"
         "--dir XDG_CACHE_HOME"
