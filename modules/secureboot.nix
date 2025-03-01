@@ -23,11 +23,8 @@ in {
       };
     };
 
-    settings.impermanence.extraDirectories = let
-      impermanenceCfg = config.settings.impermanence;
-    in
-      lib.mkIf impermanenceCfg.enable [
-        "/etc/secureboot"
-      ];
+    settings.impermanence.extraDirectories = [
+      config.boot.lanzaboote.pkiBundle
+    ];
   };
 }
