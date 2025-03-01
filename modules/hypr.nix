@@ -38,12 +38,15 @@ in {
       settings = {
         initial_session = {
           command = "${pkgs.hyprland}/bin/Hyprland";
-          username = if (builtins.hasAttr
-            cfg.autoLogin.defaultUser
-            config.users.users
-          ) then
-            cfg.autoLogin.defaultUser
-          else throw "settings.hypr.autoLogin.defaultUser is not a valid user";
+          username =
+            if
+              (
+                builtins.hasAttr
+                cfg.autoLogin.defaultUser
+                config.users.users
+              )
+            then cfg.autoLogin.defaultUser
+            else throw "settings.hypr.autoLogin.defaultUser is not a valid user";
         };
       };
     };
