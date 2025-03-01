@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ./hypr.nix
     ./nvim.nix

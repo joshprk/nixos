@@ -30,6 +30,11 @@ in {
         laststatus = 3;
       };
 
+      globals = {
+        mapleader = " ";
+        maplocalleader = ",";
+      };
+
       highlight = {
         DiagnosticUnderlineError.undercurl = true;
         DiagnosticUnderlineHint.undercurl = true;
@@ -37,6 +42,27 @@ in {
         DiagnosticUnderlineOk.undercurl = true;
         DiagnosticUnderlineWarn.undercurl = true;
       };
+
+      keymaps = [
+        {
+          action = "\"+y";
+          key = "y";
+          options.noremap = true;
+          mode = [
+            "n"
+            "v"
+          ];
+        }
+        {
+          action = "\"+p";
+          key = "p";
+          options.noremap = true;
+          mode = [
+            "n"
+            "v"
+          ];
+        }
+      ];
 
       colorschemes = {
         catppuccin = {
@@ -112,8 +138,17 @@ in {
         };
       };
 
+      plugins.persistence = {
+        enable = true;
+      };
+
       plugins.treesitter = {
         enable = true;
+      };
+
+      plugins.which-key = {
+        enable = true;
+        settings.preset = "helix";
       };
     };
   };
