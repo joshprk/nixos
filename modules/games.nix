@@ -11,10 +11,7 @@ in {
       enable = lib.mkEnableOption "the games module";
 
       packages = lib.mkOption {
-        type = lib.types.listOf (lib.types.attrs {
-          name = lib.types.str;
-          package = lib.types.package;
-        });
+        type = lib.types.listOf lib.types.attrs;
         default = [];
         description = ''
           Extra packages to install in the games sandbox.
@@ -28,7 +25,7 @@ in {
       name,
       package,
       ...
-    }: {
+    }: pkgs.buildFHSEnv {
       inherit (package) passthru;
       inherit name;
 
