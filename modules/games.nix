@@ -10,7 +10,7 @@ in {
     games = {
       enable = lib.mkEnableOption "the games module";
 
-      packages = lib.mkOption {
+      extraPackages = lib.mkOption {
         type = lib.types.listOf lib.types.attrs;
         default = [];
         description = ''
@@ -25,31 +25,39 @@ in {
       name,
       package,
       ...
-    }: pkgs.buildFHSEnv {
-      inherit (package) passthru;
-      inherit name;
+    }:
+      pkgs.buildFHSEnv {
+        inherit (package) passthru;
+        inherit name;
 
-      targetPkgs = _: [package];
+        targetPkgs = _: [package];
 
-      runScript = name;
-      mainProgram = lib.getExe package;
+        runScript = name;
+        mainProgram = lib.getExe package;
 
-      chdirToPwd = false;
-      dieWithParent = true;
+        chdirToPwd = false;
+        dieWithParent = true;
 
-      extraBwrapArgs = [
-        "--bind $XDG_DATA_HOME/games $HOME"
-        "--chdir $HOME"
-        "--dir $HOME"
-        "--dir XDG_CACHE_HOME"
-        "--dir XDG_CONFIG_HOME"
-        "--dir XDG_DATA_HOME"
-        "--dir XDG_STATE_HOME"
-      ];
-    });
+        extraBwrapArgs = [
+          "--bind $XDG_DATA_HOME/games $HOME"
+          "--chdir $HOME"
+          "--dir $HOME"
+          "--dir XDG_CACHE_HOME"
+          "--dir XDG_CONFIG_HOME"
+          "--dir XDG_DATA_HOME"
+          "--dir XDG_STATE_HOME"
+        ];
+      });
   in
     lib.mkIf cfg.enable {
-      environment.systemPackages = builtins.map mkSandbox cfg.packages;
+      environment.systemPackages = let
+        gamePkgs = with pkgs;
+          [
+            protonup
+          ]
+          ++ cfg.extraPackages;
+      in
+        builtins.map mkSandbox gamePkgs;
 
       programs.steam = {
         enable = true;
