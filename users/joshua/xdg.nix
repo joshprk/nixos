@@ -30,6 +30,7 @@
       mimeApps = {
         enable = true;
         defaultApplications = {
+
           "application/pdf" = ["zen.desktop"];
           "application/octet-stream" = ["nvim.desktop"];
           "application/x-zerosize" = ["nvim.desktop"];
@@ -41,8 +42,8 @@
     home.sessionVariables = {
       CARGO_HOME = "${config.xdg.dataHome}/cargo";
       ERRFILE = "${config.xdg.cacheHome}/x11/xsession-errors";
-      XCOMPOSECACHE = "${config.xdg.cacheHome}/x11/xcompose";
       IPYTHONDIR = "${config.xdg.configHome}/ipython";
+      XCOMPOSECACHE = "${config.xdg.cacheHome}/x11/xcompose";
 
       BROWSER = "zen";
       TERMINAL = "ghostty";
