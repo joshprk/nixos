@@ -27,6 +27,10 @@ in {
         relativenumber = true;
         signcolumn = "number";
 
+        hidden = false;
+        splitright = true;
+        splitbelow = true;
+
         laststatus = 3;
       };
 
@@ -45,24 +49,29 @@ in {
 
       keymaps = [
         {
-          action = "\"+y";
-          key = "y";
-          options.noremap = true;
-          mode = [
-            "n"
-            "v"
-          ];
+          action = ''"+ygv'';
+          key = "<C-c>";
+          mode = ["v"];
+          options.silent = true;
         }
         {
-          action = "\"+p";
-          key = "p";
-          options.noremap = true;
-          mode = [
-            "n"
-            "v"
-          ];
+          action = "<Cmd>FzfLua live_grep<CR>";
+          key = "<leader><Space>";
+          mode = ["n"];
+        }
+        {
+          action = ''<Cmd>lua require("flash").jump()<CR>'';
+          key = "f";
+          mode = ["n" "x" "o"];
+        }
+        {
+          action = ''<Cmd>lua require("flash").treesitter()<CR>'';
+          key = "F";
+          mode = ["n" "x" "o"];
         }
       ];
+
+      autoCmd = [];
 
       colorschemes = {
         catppuccin = {
@@ -75,11 +84,15 @@ in {
         };
       };
 
-      plugins.blink-cmp = {
+      plugins.blink-cmp =  {
         enable = true;
         settings = {
           keymap.preset = "super-tab";
         };
+      };
+
+      plugins.flash = {
+        enable = true;
       };
 
       plugins.fzf-lua = {
@@ -89,6 +102,10 @@ in {
       plugins.lsp = {
         enable = true;
         servers = {
+          clangd = {
+            enable = true;
+          };
+
           nil_ls = {
             enable = true;
           };
@@ -114,7 +131,11 @@ in {
         enable = true;
         mockDevIcons = true;
         modules = {
+          git = {};
           icons = {};
+          tabline = {
+            tabpage_section = "none";
+          };
         };
 
         luaConfig.post = ''
@@ -136,10 +157,6 @@ in {
         settings = {
           presets.command_palette = true;
         };
-      };
-
-      plugins.persistence = {
-        enable = true;
       };
 
       plugins.treesitter = {
