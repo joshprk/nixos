@@ -50,14 +50,13 @@ in {
       });
   in
     lib.mkIf cfg.enable {
-      environment.systemPackages = let
-        gamePkgs = with pkgs;
-          [
-            protonup
-          ]
-          ++ cfg.extraPackages;
-      in
-        builtins.map mkSandbox gamePkgs;
+      environment.systemPackages = builtins.map mkSandbox [
+        {
+          name = "protonup";
+          package = pkgs.protonup;
+        }
+      ]
+      ++ cfg.extraPackages;
 
       programs.steam = {
         enable = true;
